@@ -380,3 +380,4 @@ FodyWeavers.xsd
 /.vs/Renovation/v17/.suo
 /Client/obj/Debug/net7.0/service-worker/service-worker.js
 /Client/obj/Debug/net7.0/service-worker-assets.js.build
+**/.vs/
