@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bG050VxFiN2mgCHMbMyMTJlY8T8U8YNIZSVAhHERtiA=",
+  "Hash": "7OGHdPLJCbgaH8rpIz/L7DznHgTixJAHld2o//2Pjiw=",
   "Source": "Renovation.Client",
   "BasePath": "/",
   "Mode": "Root",
@@ -7410,6 +7410,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icon-512.png"
+    },
+    {
+      "Identity": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Client\\wwwroot\\img\\homepage.svg",
+      "SourceId": "Renovation.Client",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Client\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "img/homepage.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\homepage.svg"
     },
     {
       "Identity": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Client\\wwwroot\\index.html",

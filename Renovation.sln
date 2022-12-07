@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renovation.Server", "Server\Renovation.Server.csproj", "{8353B1BB-5C76-4008-9A4A-7B099279AFA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Renovation.Server", "Server\Renovation.Server.csproj", "{8353B1BB-5C76-4008-9A4A-7B099279AFA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renovation.Client", "Client\Renovation.Client.csproj", "{9B377DA3-F3B7-4CB4-9B48-A665CA8EE6BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Renovation.Client", "Client\Renovation.Client.csproj", "{9B377DA3-F3B7-4CB4-9B48-A665CA8EE6BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renovation.Shared", "Shared\Renovation.Shared.csproj", "{BA7A579B-57A9-484E-A1B2-662408FD71E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Renovation.Shared", "Shared\Renovation.Shared.csproj", "{BA7A579B-57A9-484E-A1B2-662408FD71E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
