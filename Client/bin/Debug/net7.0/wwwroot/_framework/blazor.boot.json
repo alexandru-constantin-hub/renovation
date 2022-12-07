@@ -202,14 +202,14 @@
       "netstandard.dll": "sha256-kj5cBXzwPYC+HD+P8+6VybY34JtEzjXjMIHXEI3hIiM=",
       "System.Private.CoreLib.dll": "sha256-Awk1lCiFfH7r9AAZfBtGqS8rhv6UJ5lUu3yF6HDH3tQ=",
       "Renovation.Shared.dll": "sha256-Hvfpl\/EbFy3PqvG6CICxHNO3SDFXtKe0V0BjnTriu5A=",
-      "Renovation.Client.dll": "sha256-FtOoB2oAN6OB3h9pqGSqgz+6CjpgsU9jPbDgxwinQOk="
+      "Renovation.Client.dll": "sha256-o9T1HmqppDAWs4HIETAUBIwR6g2Q9CGpraAImFPOlT8="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "Renovation.Shared.pdb": "sha256-KwnIfN6S8Pcj+bFlf6H3sT1Ee2\/MytP3KQUppTWz8Xg=",
-      "Renovation.Client.pdb": "sha256-CRqX+aez4KZ3Ei5fs781lftlWNP1pb8e4o+LNzLihyA="
+      "Renovation.Client.pdb": "sha256-2GkCFGgSIFnoLs2ymfx2eX4\/pLBW0hQj2DiJtlvNEo8="
     },
     "runtime": {
       "dotnet.7.0.0.amub20uvka.js": "sha256-2jNLve8W0sST0LAebgAc1IwSnGhkbjOKO8QPWWiJssI=",
