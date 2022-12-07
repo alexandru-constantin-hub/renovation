@@ -381,3 +381,4 @@ FodyWeavers.xsd
 /Shared/bin/Debug/net7.0/Renovation.Shared.pdb
 /Server/obj/*
 /Client/obj/Debug/net7.0/Renovation.Client.assets.cache
+/Server/obj/Renovation.Server.csproj.nuget.g.props
