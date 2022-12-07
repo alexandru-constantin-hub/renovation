@@ -1,0 +1,11 @@
+﻿################################################################################
+# Ce fichier .gitignore a été automatiquement créé par Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Client
+/Server/obj/Release/net7.0
+/Shared/obj/Release/net7.0
+/.gitignore
+/.gitignore
+/.gitignore
