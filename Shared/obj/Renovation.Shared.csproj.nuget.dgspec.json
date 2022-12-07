@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Shared\\Renovation.Shared.csproj": {}
+    "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Shared\\Renovation.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Shared\\Renovation.Shared.csproj": {
+    "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Shared\\Renovation.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Shared\\Renovation.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Shared\\Renovation.Shared.csproj",
         "projectName": "Renovation.Shared",
-        "projectPath": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Shared\\Renovation.Shared.csproj",
-        "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Shared\\Renovation.Shared.csproj",
+        "packagesPath": "C:\\Users\\Berko\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Berko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
