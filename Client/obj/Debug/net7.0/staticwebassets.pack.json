@@ -81,6 +81,10 @@
       "PackagePath": "staticwebassets\\icon-512.png"
     },
     {
+      "Id": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Client\\wwwroot\\img\\homepage.svg",
+      "PackagePath": "staticwebassets\\img\\homepage.svg"
+    },
+    {
       "Id": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Client\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

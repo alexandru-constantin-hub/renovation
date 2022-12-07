@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Renovation.Server.Models;
+using Renovation.Shared.Models;
 
 namespace Renovation.Server.Data
 {
@@ -13,5 +14,8 @@ namespace Renovation.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+        public DbSet<Membre> Membre { get; set; } = default!;
+
+
     }
 }
