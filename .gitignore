@@ -374,3 +374,9 @@ FodyWeavers.xsd
 /.vs/Renovation/DesignTimeBuild/.dtbcache.v2
 /Client/obj/Debug/net7.0/Renovation.Client.csproj.AssemblyReference.cache
 /Server/obj/Debug/net7.0/Renovation.Server.csproj.AssemblyReference.cache
+/Server/obj/Debug/net7.0/Renovation.Server.csproj.AssemblyReference.cache
+/Client/bin/Debug/net7.0/wwwroot/service-worker-assets.js
+/Client/bin/Debug/net7.0/wwwroot/service-worker.js
+/.vs/Renovation/v17/.suo
+/Client/obj/Debug/net7.0/service-worker/service-worker.js
+/Client/obj/Debug/net7.0/service-worker-assets.js.build
