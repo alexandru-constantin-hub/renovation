@@ -369,17 +369,8 @@ FodyWeavers.xsd
 # ignore bin
 **/bin/**
 
-#files to ignore
+#suo
 *.suo
-**/project.razor.vs.json
 /.vs/Renovation/DesignTimeBuild/.dtbcache.v2
-**/*.cache
-/Server/obj/*
-/Server/bin/*
-/Client/obj/*
-/Shared/obj/*
-/Shared/bin/*
-/Shared/bin/Debug/net7.0/Renovation.Shared.pdb
-/Server/obj/*
-/Client/obj/Debug/net7.0/Renovation.Client.assets.cache
-/Server/obj/Renovation.Server.csproj.nuget.g.props
+/Client/obj/Debug/net7.0/Renovation.Client.csproj.AssemblyReference.cache
+/Server/obj/Debug/net7.0/Renovation.Server.csproj.AssemblyReference.cache
