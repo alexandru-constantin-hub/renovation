@@ -2015,19 +2015,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alexa\\.nuget\\packages\\": {}
+    "C:\\Users\\Berko\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Client\\Renovation.Client.csproj",
+      "projectUniqueName": "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Client\\Renovation.Client.csproj",
       "projectName": "Renovation.Client",
-      "projectPath": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Client\\Renovation.Client.csproj",
-      "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Client\\obj\\",
+      "projectPath": "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Client\\Renovation.Client.csproj",
+      "packagesPath": "C:\\Users\\Berko\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Client\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Berko\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2041,8 +2046,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Shared\\Renovation.Shared.csproj": {
-              "projectPath": "C:\\Users\\alexa\\Documents\\personal\\scoala\\renovation\\RenovationApp\\Shared\\Renovation.Shared.csproj"
+            "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Shared\\Renovation.Shared.csproj": {
+              "projectPath": "C:\\Users\\Berko\\Documents\\projetFinal Misoeunouve Projet\\Shared\\Renovation.Shared.csproj"
             }
           }
         }
@@ -2086,12 +2091,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[7.0.0, 7.0.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
