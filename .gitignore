@@ -375,6 +375,7 @@ FodyWeavers.xsd
 /.vs/Renovation/DesignTimeBuild/.dtbcache.v2
 **/*.cache
 /Server/obj/*
+/Server/bin/*
 /Client/obj/*
 /Shared/obj/*
 /Shared/bin/*
