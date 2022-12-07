@@ -365,3 +365,9 @@ FodyWeavers.xsd
 
 #appsettings.json
 **/*.Server/appsettings.json
+
+# ignore bin
+**/bin/**
+
+#suo
+*.suo
