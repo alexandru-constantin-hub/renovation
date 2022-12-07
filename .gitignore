@@ -371,7 +371,7 @@ FodyWeavers.xsd
 
 #suo
 *.suo
-/.vs/Renovation/DesignTimeBuild/.dtbcache.v2
+/.vs/**
 /Client/obj/Debug/net7.0/Renovation.Client.csproj.AssemblyReference.cache
 /Server/obj/Debug/net7.0/Renovation.Server.csproj.AssemblyReference.cache
 /Server/obj/Debug/net7.0/Renovation.Server.csproj.AssemblyReference.cache
