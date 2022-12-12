@@ -54,22 +54,50 @@ namespace Renovation.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> RegisterMembre([Bind("Email,MotDePasse")] Utilisateur utilisateur)
+        public async Task<IActionResult> RegisterMembre([Bind("IdUtilisateur,Email,MotDePasse,Etat,Role,IdActivateur,IdDesactivateur")] Utilisateur utilisateur)
         {
             if (ModelState.IsValid)
             {
                 utilisateur.Role = "Membre";
                 utilisateur.Etat = false;
                 _context.Add(utilisateur);
-                Console.Write("It is working");
                 await _context.SaveChangesAsync();
                 ViewBag.Message = new { Text = "Inscrivez-vous avec succès", CssClass = "alert alert-success" };
                 return View();
             }
-            Debug.WriteLine("It is not working");
             ViewBag.Message = new { Text = "Il ya un problème...", CssClass = "alert alert-danger" };
             return View(utilisateur);
         }
+
+
+
+        // GET: Utilisateurs/Create
+        public IActionResult RegisterFurniseur()
+        {
+            return View();
+        }
+       
+        // POST: Utilisateurs/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterFurniseur([Bind("IdUtilisateur,Email,MotDePasse,Etat,Role,IdActivateur,IdDesactivateur")] Utilisateur utilisateur)
+        {
+            if (ModelState.IsValid)
+            {
+                utilisateur.Role = "Furniseur";
+                utilisateur.Etat = false;
+                _context.Add(utilisateur);
+                await _context.SaveChangesAsync();
+                ViewBag.Message = new { Text = "Inscrivez-vous avec succès", CssClass = "alert alert-success" };
+                return View();
+            }
+            
+            ViewBag.Message = new { Text = "Il ya un problème...", CssClass = "alert alert-danger" };
+            return View(utilisateur);
+        }
+
 
         // GET: Utilisateurs/Edit/5
         public async Task<IActionResult> Edit(int? id)

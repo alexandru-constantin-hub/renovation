@@ -1,16 +1,16 @@
 ﻿@model Renovation.Models.Utilisateur
 
 @{
-    ViewData["Title"] = "S'inscrire Membre";
+    ViewData["Title"] = "S'inscrire Furniseur";
 }
 
-<h1>S'inscrire en tant que Membre</h1>
+<h1>S'inscrire en tant que Furniseure</h1>
 
 
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="RegisterMembre">
+        <form asp-action="RegisterFurniseur">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label mb-2">Email</label>
@@ -27,7 +27,7 @@
                     <input class="form-check-input" asp-for="Etat" /> @Html.DisplayNameFor(model => model.Etat)
                 </label>
             </div>*@
-            @Html.Hidden("Role", "Membre")
+            @Html.Hidden("Role", "Furniseur")
             
                @* <input asp-for="Role" class="form-control"  type="hidden" value="Membre"/>*@
                 
@@ -43,7 +43,7 @@
                 <span asp-validation-for="IdDesactivateur" class="text-danger"></span>
             </div>*@
             <div class="form-group  mt-4">
-                <input type="submit" value="RegisterMembre" class="btn btn-primary" />
+                <input type="submit" value="RegisterFurniseur" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -55,13 +55,20 @@
 </div>
 @if (@ViewBag.Message != null)
 {
-        <div class="position-absolute top-0 end-0 @ViewBag.Message.CssClass">
+    <div class="position-absolute top-0 end-0 @ViewBag.Message.CssClass">
         @ViewBag.Message.Text
     </div>
+
+    
 }
+
+
 
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-   
 }
+
+
+
+
