@@ -1,0 +1,47 @@
+﻿@model Renovation.Models.Utilisateur
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1 class="text-center">Login</h1>
+
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form asp-action="Login">
+
+                    <!-- Email input -->
+                     <div class="form-group">
+                            <label asp-for="Email" class="control-label mb-2">Email</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-group mt-4">
+                        <label asp-for="MotDePasse" class="control-label mb-2">Mot de passe</label>
+                        <input asp-for="MotDePasse" class="form-control" type="password" />
+                        <span asp-validation-for="MotDePasse" class="text-danger"></span>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <input type="submit" value="Login" class="btn btn-primary" />
+                        <p class="mt-2 pt-1">
+                            Don't have an account? <a href="/utilisateurs/create" class="link-primary">Register</a>
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+   
+</section>
+
