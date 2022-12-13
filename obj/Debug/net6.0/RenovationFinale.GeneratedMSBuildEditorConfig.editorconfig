@@ -9,217 +9,229 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RenovationFinale
 build_property.RootNamespace = RenovationFinale
-build_property.ProjectDir = C:\Users\Berko\Documents\RenovationFinale\
+build_property.ProjectDir = C:\Users\alexa\Documents\personal\scoala\renovation\renovationFinale\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Berko\Documents\RenovationFinale
+build_property.MSBuildProjectDirectory = C:\Users\alexa\Documents\personal\scoala\renovation\renovationFinale
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Administrateurs/Create.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Administrateurs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRldXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Administrateurs/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Administrateurs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRldXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Administrateurs/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Administrateurs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRldXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Administrateurs/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Administrateurs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRldXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Administrateurs/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Administrateurs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYXRldXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Announces/Create.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Announces/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5ub3VuY2VzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Announces/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Announces/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5ub3VuY2VzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Announces/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Announces/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5ub3VuY2VzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Announces/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Announces/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5ub3VuY2VzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Announces/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Announces/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5ub3VuY2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Evaluations/Create.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Evaluations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZhbHVhdGlvbnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Evaluations/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Evaluations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZhbHVhdGlvbnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Evaluations/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Evaluations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZhbHVhdGlvbnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Evaluations/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Evaluations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZhbHVhdGlvbnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Evaluations/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Evaluations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZhbHVhdGlvbnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Fournisseurs/Create.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Fournisseurs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm91cm5pc3NldXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Fournisseurs/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Fournisseurs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm91cm5pc3NldXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Fournisseurs/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Fournisseurs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm91cm5pc3NldXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Fournisseurs/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Fournisseurs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm91cm5pc3NldXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Fournisseurs/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Fournisseurs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm91cm5pc3NldXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Home/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Home/Privacy.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Membres/Create.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Login/Desactive.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cRGVzYWN0aXZlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Membres/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYnJlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Membres/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Membres/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYnJlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Membres/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Membres/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYnJlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Membres/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Membres/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYnJlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Membres/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Membres/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYnJlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Offres/Create.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Offres/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmcmVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Offres/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Offres/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmcmVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Offres/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Offres/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmcmVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Offres/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Offres/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmcmVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Offres/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Offres/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2ZmcmVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Shared/Error.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typepieces/Create.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typepieces/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXBpZWNlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typepieces/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typepieces/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXBpZWNlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typepieces/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typepieces/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXBpZWNlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typepieces/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typepieces/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXBpZWNlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typepieces/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typepieces/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXBpZWNlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typerenovations/Create.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typerenovations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXJlbm92YXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typerenovations/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typerenovations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXJlbm92YXRpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typerenovations/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typerenovations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXJlbm92YXRpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typerenovations/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typerenovations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXJlbm92YXRpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Typerenovations/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Typerenovations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZXJlbm92YXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Utilisateurs/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGlzYXRldXJzXENyZWF0ZS5jc2h0bWw=
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Utilisateurs/CreateFurniseur.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGlzYXRldXJzXENyZWF0ZUZ1cm5pc2V1ci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Utilisateurs/Delete.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Utilisateurs/CreateMember.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGlzYXRldXJzXENyZWF0ZU1lbWJlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Utilisateurs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGlzYXRldXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Utilisateurs/Details.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Utilisateurs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGlzYXRldXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Utilisateurs/Edit.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Utilisateurs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGlzYXRldXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Utilisateurs/Index.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Utilisateurs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXRpbGlzYXRldXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/_ViewImports.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/_ViewStart.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Berko/Documents/RenovationFinale/Views/Shared/_Layout.cshtml]
+[C:/Users/alexa/Documents/personal/scoala/renovation/renovationFinale/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-nwbw2wh56k

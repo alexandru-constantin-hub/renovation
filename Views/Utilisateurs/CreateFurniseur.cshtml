@@ -12,22 +12,23 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+           @* <div class="form-group">
                 <label asp-for="IdUtilisateur" class="control-label"></label>
                 <input asp-for="IdUtilisateur" class="form-control" />
                 <span asp-validation-for="IdUtilisateur" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Email" class="control-label">Email</label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MotDePasse" class="control-label"></label>
+                <label asp-for="MotDePasse" class="control-label">Mot de passe</label>
                 <input asp-for="MotDePasse" class="form-control" />
                 <span asp-validation-for="MotDePasse" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            @Html.Hidden("Role", "Furnisseur")
+           @* <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Etat" /> @Html.DisplayNameFor(model => model.Etat)
                 </label>
@@ -45,16 +46,17 @@
                 <label asp-for="IdDesactivateur" class="control-label"></label>
                 <input asp-for="IdDesactivateur" class="form-control" />
                 <span asp-validation-for="IdDesactivateur" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary mt-3" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="mt-4">
+    <p>Vous avez déjà un compte?</p>
+    <a asp-controller="Login" asp-action="Index">Login</a>
 </div>
 
 @section Scripts {
