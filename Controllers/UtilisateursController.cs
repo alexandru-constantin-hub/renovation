@@ -60,15 +60,33 @@ namespace RenovationFinale.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUtilisateur,Email,MotDePasse,Etat,Role,IdActivateur,IdDesactivateur")] Utilisateur utilisateur)
+        public async Task<IActionResult> Create([Bind("Email,MotDePasse,Etat,Role,IdActivateur,IdDesactivateur")] Utilisateur utilisateur)
         {
             if (ModelState.IsValid)
             {
+
+                var checkUserExist = _context.Utilisateurs.FirstOrDefault(e => e.Email == utilisateur.Email);
+                var howMany = _context.Utilisateurs.OrderByDescending(i => i.IdUtilisateur).FirstOrDefault();
+
+
+                if (checkUserExist != null)
+                { 
+                   
+                    ViewData["message"] = "alreadyExists";
+                    if (utilisateur.Role == "Furnisseur")
+                    {
+                        return View("CreateFurniseur");
+                    }
+                    return View("CreateMember");
+                }
+
+                utilisateur.IdUtilisateur = howMany.IdUtilisateur + 1;
                 _context.Add(utilisateur);
                 await _context.SaveChangesAsync();
+                ViewData["message"] = "createSuccess";
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdActivateur"] = new SelectList(_context.Administrateurs, "IdAdministrateur", "IdAdministrateur", utilisateur.IdActivateur);
+            ViewData["message"] = "createError";
             return View(utilisateur);
         }
 

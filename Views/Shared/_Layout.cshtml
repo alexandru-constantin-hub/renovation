@@ -1,10 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Http
+@using System.Web;
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor context
 
 @{
     ViewData["Title"] = "Renovation";
 
-    var cookievalue = context.HttpContext.Request.Cookies["logedIn"];
+    var cookieLogedIn = context.HttpContext.Request.Cookies["logedIn"];
+
+    var cookieRole = context.HttpContext.Request.Cookies["role"];
+
+    var cookieName = context.HttpContext.Request.Cookies["name"];
 }
 
 
@@ -28,8 +33,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex">
+                    
                     <ul class="navbar-nav flex-grow-1 d-flex justify-content-end mt-3">
-                        @if (@cookievalue != "true")
+                        @if (@cookieLogedIn != "true")
                         {
                             <li class="nav-item">
                                 <div class="dropdown">
@@ -43,9 +49,42 @@
                                 </div>
                             </li>
                         }
+                         
                         
-                        @if (@cookievalue == "true")
+                        @if (@cookieLogedIn == "true")
                         {
+                            <li class="nav-item me-2">
+                                    <p class="mt-2">Bonjour, @cookieName</p>
+                            </li>
+
+                            if (@cookieRole == "Administrateur")
+                            {
+                                
+                                <li class="nav-item mb-3 me-2">
+                                    <a class="nav-link btn btn-link" asp-controller="Administrateurs" asp-action="Index">Vos informations</a>
+                                </li>
+                                
+                            }
+                            
+                            
+
+                            if (@cookieRole == "Membre")
+                            {
+                                <li class="nav-item mb-3">
+                                    <a class="nav-link btn btn-link" asp-controller="Membres" asp-action="Index">Vos informations</a>
+                                </li>
+
+                            }
+
+
+                            if (@cookieRole == "Furniseur")
+                            {
+                                <li class="nav-item mb-3">
+                                    <a class="nav-link btn btn-link" asp-controller="Furniseurs" asp-action="Index">Vos informations</a>
+                                </li>
+
+                            }
+
                             <li class="nav-item mb-3">
                                 <a class="nav-link btn btn-link" asp-controller="Login" asp-action="Logout">Logout</a>
                             </li>
@@ -56,6 +95,8 @@
                                 <a class="nav-link btn btn-link" href="/login">Login</a>
                             </li>
                         }
+                        
+                        
                        
                         
                     </ul>
@@ -65,7 +106,32 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @Context.Request.Cookies["logedIn"];
+            <div class="w-100 d-flex flex-row justify-content-around navbar navbar-light mb-4 pb-4">
+                @if (@cookieRole == "Administrateur")
+                {
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Apercu</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Utilisateurs</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Announces</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Type de piece</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Type de renovation</a></div>
+                }
+                @if (@cookieRole == "Membre")
+                {
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Apercu</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Mes annonces</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Des offres</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Entreprises</a></div>
+                }
+                @if (@cookieRole == "Furniseur")
+                {
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Apercu</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Rechercher une annonce</a></div>
+                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Mes offres</a></div>
+                }
+               
+                
+            </div>
+            
             @RenderBody()
         </main>
     </div>
@@ -73,7 +139,6 @@
     <footer class="border-top footer text-muted">
  
         <div class="container">
-            @cookievalue
             &copy; 2022 - RenovationFinale - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
