@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using RenovationFinale.Models;
 
 namespace RenovationFinale.Controllers
 {
+    
     public class UtilisateursController : Controller
     {
         private readonly RenovationFinaleContext _context;
@@ -19,6 +21,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Utilisateurs
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var renovationFinaleContext = _context.Utilisateurs.Include(u => u.IdActivateurNavigation);
@@ -26,6 +29,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Utilisateurs/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Utilisateurs == null)
@@ -69,6 +73,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Utilisateurs/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Utilisateurs == null)
@@ -89,6 +94,7 @@ namespace RenovationFinale.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdUtilisateur,Email,MotDePasse,Etat,Role,IdActivateur,IdDesactivateur")] Utilisateur utilisateur)
         {
@@ -122,6 +128,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Utilisateurs/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Utilisateurs == null)
@@ -143,6 +150,7 @@ namespace RenovationFinale.Controllers
         // POST: Utilisateurs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.Utilisateurs == null)
@@ -163,5 +171,17 @@ namespace RenovationFinale.Controllers
         {
           return _context.Utilisateurs.Any(e => e.IdUtilisateur == id);
         }
+
+        public IActionResult CreateFurniseur()
+        {
+            
+            return View();
+        }
+        
+        
+        public IActionResult CreateMember() {
+            return View();
+        }
+
     }
 }
