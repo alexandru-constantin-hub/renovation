@@ -27,7 +27,7 @@
                 <input asp-for="MotDePasse" class="form-control" />
                 <span asp-validation-for="MotDePasse" class="text-danger"></span>
             </div>
-            @Html.Hidden("Role", "Member")
+            @Html.Hidden("Role", "Membre")
             @*<div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Etat" /> @Html.DisplayNameFor(model => model.Etat)
@@ -58,6 +58,28 @@
     <p>Vous avez déjà un compte?</p>
     <a asp-controller="Login" asp-action="Index">Login</a>
 </div>
+@if (@ViewBag.message == "createError")
+{
+    <div class="alert alert-danger position-absolute bottom-0 end-0" role="alert">
+        Il y a une erreur!
+    </div>
+}
+
+@if (@ViewBag.message == "createSuccess")
+{
+    <div class="alert alert-success position-absolute bottom-0 end-0" role="alert">
+        Le compte a été créé avec succès!
+    </div>
+}
+
+@if (@ViewBag.message == "alreadyExists")
+{
+    <div class="alert alert-danger position-absolute bottom-0 end-0" role="alert">
+        <p>L'utilisateur existe déjà! <a href="/login">Veuillez vous connecter</a></p>
+    </div>
+}
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
