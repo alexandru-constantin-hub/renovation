@@ -1,4 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor context
+
+@{
+    ViewData["Title"] = "Renovation";
+
+    var cookievalue = context.HttpContext.Request.Cookies["logedIn"];
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,20 +21,43 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+            <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RenovationFinale</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                <div class="navbar-collapse collapse d-sm-inline-flex">
+                    <ul class="navbar-nav flex-grow-1 d-flex justify-content-end mt-3">
+                        @if (@cookievalue != "true")
+                        {
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        S'inscrire
+                                    </button>
+                                    <ul class="dropdown-menu" aria-label ledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" asp-controller="Utilisateurs" asp-action="CreateMember">S'inscrire en tant que Membre</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Utilisateurs" asp-action="CreateFurniseur">S'inscrire en tant que Furniseur</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        }
+                        
+                        @if (@cookievalue == "true")
+                        {
+                            <li class="nav-item mb-3">
+                                <a class="nav-link btn btn-link" asp-controller="Login" asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item mb-3">
+                                <a class="nav-link btn btn-link" href="/login">Login</a>
+                            </li>
+                        }
+                       
+                        
                     </ul>
                 </div>
             </div>
@@ -32,12 +65,15 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @Context.Request.Cookies["logedIn"];
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
+ 
         <div class="container">
+            @cookievalue
             &copy; 2022 - RenovationFinale - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
