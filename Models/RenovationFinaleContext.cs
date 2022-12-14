@@ -36,8 +36,6 @@ public partial class RenovationFinaleContext : DbContext
 
 
 
-    
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Administrateur>(entity =>
