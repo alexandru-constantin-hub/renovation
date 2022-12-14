@@ -39,7 +39,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Etat" class="control-label"></label>
-                <input asp-for="Etat" class="form-control" />
+                <select class="form-control" id="Etat" name="Etat">
+                    <option value="Activé">Activé</option>
+                    <option value="Désactivé">Désactivé</option>
+                </select>
+               @* <input asp-for="Etat" class="form-control" />*@
                 <span asp-validation-for="Etat" class="text-danger"></span>
             </div>
             @*<div class="form-group">

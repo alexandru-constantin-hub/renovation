@@ -68,7 +68,7 @@ namespace RenovationFinale.Controllers
                     return RedirectToAction("Index", "Administrateurs");
                 }
                 
-                if (user.Role == "Utilisateur")
+                if (user.Role == "Membre")
                 {
                     if (userActiveMembre == null)
                     {
@@ -76,18 +76,18 @@ namespace RenovationFinale.Controllers
                     }
                     Response.Cookies.Append("name", userActiveMembre.Nom);
 
-                    return RedirectToAction("Index", "Utilisateurs");
+                    return RedirectToAction("Index", "Membres");
                 }
-                if(user.Role == "Furniseur")
+                if(user.Role == "Furnisseur")
                 {
                     if (userActiveFurniseur == null)
                     {
-                        return RedirectToAction("Create", "Furniseurs");
+                        return RedirectToAction("Create", "Furnisseurs");
                     }
 
                     Response.Cookies.Append("name", userActiveFurniseur.Nom);
 
-                    return RedirectToAction("Index", "Login");
+                    return RedirectToAction("Index", "Furnisseurs");
                 }
 
 
@@ -111,6 +111,8 @@ namespace RenovationFinale.Controllers
             Response.Cookies.Delete("logedIn");
             Response.Cookies.Delete("name");
             Response.Cookies.Delete("role");
+            Response.Cookies.Delete("nameIdentifier");
+            
 
             return RedirectToAction("Index", "Home");
         }

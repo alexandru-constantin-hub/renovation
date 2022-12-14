@@ -77,10 +77,10 @@
                             }
 
 
-                            if (@cookieRole == "Furniseur")
+                            if (@cookieRole == "Fournisseur")
                             {
                                 <li class="nav-item mb-3">
-                                    <a class="nav-link btn btn-link" asp-controller="Furniseurs" asp-action="Index">Vos informations</a>
+                                    <a class="nav-link btn btn-link" asp-controller="Fournisseurs" asp-action="Index">Vos informations</a>
                                 </li>
 
                             }
@@ -119,11 +119,11 @@
                     <div class="nav-item"><a asp-controller="Offres" asp-action="Index">Des offres</a></div>
                     <div class="nav-item"><a asp-controller="Fournisseurs" asp-action="Index">Entreprises</a></div>
                 }
-                @if (@cookieRole == "Furniseur")
+                @if (@cookieRole == "Fournisseur")
                 {
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Rechercher une annonce</a></div>
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Mes offres</a></div>
+                    <div class="nav-item"><a asp-controller="Fournisseurs" asp-action="Index">Apercu</a></div>
+                    <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Rechercher une annonce</a></div>
+                    <div class="nav-item"><a asp-controller="Offres" asp-action="Index">Mes offres</a></div>
                 }
                
                 
