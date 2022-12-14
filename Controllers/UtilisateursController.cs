@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -66,25 +67,36 @@ namespace RenovationFinale.Controllers
             {
 
                 var checkUserExist = _context.Utilisateurs.FirstOrDefault(e => e.Email == utilisateur.Email);
-                var howMany = _context.Utilisateurs.OrderByDescending(i => i.IdUtilisateur).FirstOrDefault();
-
+                int howMany = _context.Utilisateurs.OrderByDescending(i => i.IdUtilisateur).FirstOrDefault().IdUtilisateur;
+                
 
                 if (checkUserExist != null)
-                { 
-                   
+                {
+
                     ViewData["message"] = "alreadyExists";
-                    if (utilisateur.Role == "Furnisseur")
+                    if (utilisateur.Role == "Fournisseur")
                     {
                         return View("CreateFurniseur");
                     }
                     return View("CreateMember");
                 }
-
-                utilisateur.IdUtilisateur = howMany.IdUtilisateur + 1;
+                int idUtil = howMany + 1;
+                Debug.WriteLine("ID USER : " + idUtil);
+                Debug.WriteLine("ID USER : " + utilisateur.Role);
+                utilisateur.IdUtilisateur = idUtil;
                 _context.Add(utilisateur);
                 await _context.SaveChangesAsync();
                 ViewData["message"] = "createSuccess";
-                return RedirectToAction(nameof(Index));
+                TempData["idUser"] = idUtil;
+                
+
+                if (utilisateur.Role == "Fournisseur")
+                {
+                    
+                    return RedirectToAction("Create", "Fournisseurs");
+                }
+                
+                return RedirectToAction("Create", "Membres");
             }
             ViewData["message"] = "createError";
             return View(utilisateur);

@@ -364,5 +364,16 @@ FodyWeavers.xsd
 
 renovationFinale/bin
 renovationFinale/obj
-/obj/Debug/net6.0/RenovationFinale.GeneratedMSBuildEditorConfig.editorconfig
+/obj/Debug/net6.0/RenovationFinale.AssemblyInfo.cs
+/obj/Debug/net6.0/RenovationFinale.assets.cache
+/obj/Debug/net6.0/RenovationFinale.csproj.AssemblyReference.cache
+/obj/Debug/net6.0/RenovationFinale.csproj.CoreCompileInputs.cache
+/obj/Debug/net6.0/staticwebassets.build.json
+/obj/project.assets.json
+/obj/project.nuget.cache
+/obj/RenovationFinale.csproj.nuget.dgspec.json
+/obj/RenovationFinale.csproj.nuget.g.props
+/bin/Debug/net6.0/RenovationFinale.pdb
+/bin/Debug/net6.0/RenovationFinale.staticwebassets.runtime.json
+/.vs/renovationFinale/v17/.suo
 /bin/Debug/net6.0/RenovationFinale.dll
