@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Models",
+    "\\Views",
+    "\\Views\\Utilisateurs"
   ],
-  "SelectedNode": "\\Program.cs",
+  "SelectedNode": "\\Views\\Utilisateurs\\CreateMember.cshtml",
   "PreviewInSolutionExplorer": false
 }

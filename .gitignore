@@ -362,10 +362,20 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-renovationFinale/bin
-renovationFinale/obj
+*/bin
+*/obj
 
 /*/*.sln
 /*/.vs/
 /*/*.VC.db
 /*/*.VC.VC.opendb
+
+*/**/bin/Debug
+*/**/bin/Release
+*/**/obj/Debug
+*/**/obj/Release
+
+*.exe
+*.pdb
+*.manifest
+*.cache

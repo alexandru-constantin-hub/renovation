@@ -10,7 +10,7 @@ using RenovationFinale.Models;
 
 namespace RenovationFinale.Controllers
 {
-    [Authorize]
+    
     public class FournisseursController : Controller
     {
         private readonly RenovationFinaleContext _context;
@@ -21,6 +21,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Fournisseurs
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var renovationFinaleContext = _context.Fournisseurs.Include(f => f.IdUtilisateurNavigation);
@@ -28,6 +29,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Fournisseurs/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Fournisseurs == null)
@@ -47,6 +49,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Fournisseurs/Create
+        
         public IActionResult Create()
         {
             ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur");
@@ -60,17 +63,17 @@ namespace RenovationFinale.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdUtilisateur,Nom,CodeFiscale,Adresse,Telephone")] Fournisseur fournisseur)
         {
-            if (ModelState.IsValid)
-            {
+            
                 _context.Add(fournisseur);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
             ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur", fournisseur.IdUtilisateur);
             return View(fournisseur);
         }
 
         // GET: Fournisseurs/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Fournisseurs == null)
@@ -90,6 +93,7 @@ namespace RenovationFinale.Controllers
         // POST: Fournisseurs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdUtilisateur,Nom,CodeFiscale,Adresse,Telephone")] Fournisseur fournisseur)
@@ -124,6 +128,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Fournisseurs/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Fournisseurs == null)
@@ -143,6 +148,7 @@ namespace RenovationFinale.Controllers
         }
 
         // POST: Fournisseurs/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

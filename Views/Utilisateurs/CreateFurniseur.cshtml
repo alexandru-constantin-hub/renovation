@@ -4,9 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Créer un compte fournisseur</h1>
 
-<h4>Utilisateur</h4>
+<h4>étape 1</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -27,7 +27,7 @@
                 <input asp-for="MotDePasse" class="form-control" />
                 <span asp-validation-for="MotDePasse" class="text-danger"></span>
             </div>
-            @Html.Hidden("Role", "Furnisseur")
+            @Html.Hidden("Role", "Fournisseur")
            @* <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Etat" /> @Html.DisplayNameFor(model => model.Etat)
