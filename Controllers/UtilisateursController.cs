@@ -25,7 +25,12 @@ namespace RenovationFinale.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var renovationFinaleContext = _context.Utilisateurs.Include(u => u.IdActivateurNavigation);
+
+            List<Utilisateur> utilisateurs = _context.Utilisateurs.ToList();
+            List<Membre> membres = _context.Membres.ToList();
+            
+
+            var renovationFinaleContext = _context.Utilisateurs.Join(_context.Membres, u => u.IdUtilisateur, m => m.IdUtilisateur, (u, m) => new JoinUM{ utilisateurVM = u, membreVM = m });
             return View(await renovationFinaleContext.ToListAsync());
         }
 
