@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -53,8 +54,8 @@ namespace RenovationFinale.Controllers
         public IActionResult Create()
         {
             ViewData["IdDesactivateur"] = new SelectList(_context.Administrateurs, "IdAdministrateur", "IdAdministrateur");
-            ViewData["IdPiece"] = new SelectList(_context.Typepieces, "IdPiece", "IdPiece");
-            ViewData["IdTypeRenovation"] = new SelectList(_context.Typerenovations, "IdTypeRenovation", "IdTypeRenovation");
+            ViewData["IdPiece"] = new SelectList(_context.Typepieces, "IdPiece", "Titre");
+            ViewData["IdTypeRenovation"] = new SelectList(_context.Typerenovations, "IdTypeRenovation", "Titre");
             ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur");
             return View();
         }
@@ -64,10 +65,16 @@ namespace RenovationFinale.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdAnnounce,Adresse,Duree,Dimensions,AutreInformations,Etat,IdUtilisateur,IdPiece,IdTypeRenovation,IdDesactivateur")] Announce announce)
+        public async Task<IActionResult> Create([Bind("Adresse,Duree,Dimensions,AutreInformations,Etat,IdPiece,IdTypeRenovation,IdDesactivateur")] Announce announce)
         {
             if (ModelState.IsValid)
             {
+                int howMany = _context.Announces.OrderByDescending(i => i.IdAnnounce).FirstOrDefault().IdAnnounce;
+                string getIdUtilisateur = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                int idAnnounce = (howMany + 1);
+
+                announce.IdAnnounce = idAnnounce;
+                announce.IdUtilisateur = Convert.ToInt32(getIdUtilisateur);
                 _context.Add(announce);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

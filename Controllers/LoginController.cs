@@ -40,6 +40,7 @@ namespace RenovationFinale.Controllers
 
                 var claims = new List<Claim>
                 {
+                    new Claim(ClaimTypes.NameIdentifier, user.IdUtilisateur.ToString()),
                     new Claim(ClaimTypes.Name, user.Email),
                     new Claim(ClaimTypes.Role, user.Role),
                 };
@@ -53,6 +54,9 @@ namespace RenovationFinale.Controllers
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props).Wait();
 
                 Response.Cookies.Append("role", user.Role);
+                Response.Cookies.Append("nameIdentifier", user.IdUtilisateur.ToString());
+
+
 
                 if (user.Role == "Administrateur")
                 {

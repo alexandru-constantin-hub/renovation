@@ -94,11 +94,7 @@
                             <li class="nav-item mb-3">
                                 <a class="nav-link btn btn-link" href="/login">Login</a>
                             </li>
-                        }
-                        
-                        
-                       
-                        
+                        } 
                     </ul>
                 </div>
             </div>
@@ -109,18 +105,19 @@
             <div class="w-100 d-flex flex-row justify-content-around navbar navbar-light mb-4 pb-4">
                 @if (@cookieRole == "Administrateur")
                 {
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Utilisateurs</a></div>
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Announces</a></div>
+                    <div class="nav-item"><a asp-controller="Administrateurs" asp-action="Index">Apercu</a></div>
+                    <div class="nav-item"><a asp-controller="Utilisateurs" asp-action="Index">Utilisateurs</a></div>
+                    <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Announces</a></div>
                     <div class="nav-item"><a asp-controller="Typepieces" asp-action="Index">Type de piece</a></div>
                     <div class="nav-item"><a asp-controller="Typerenovations" asp-action="Index">Type de renovation</a></div>
                 }
                 @if (@cookieRole == "Membre")
                 {
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Mes annonces</a></div>
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Des offres</a></div>
-                    <div class="nav-item"><a asp-controller="Furniseurs" asp-action="Index">Entreprises</a></div>
+                    <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Apercu</a></div>
+                    <div class="nav-item"><a asp-controller="Announces" asp-action="Create">Cree une announce</a></div>
+                    <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Mes annonces</a></div>
+                    <div class="nav-item"><a asp-controller="Offres" asp-action="Index">Des offres</a></div>
+                    <div class="nav-item"><a asp-controller="Fournisseurs" asp-action="Index">Entreprises</a></div>
                 }
                 @if (@cookieRole == "Furniseur")
                 {
