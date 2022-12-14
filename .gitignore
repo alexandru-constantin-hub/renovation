@@ -365,3 +365,4 @@ FodyWeavers.xsd
 renovationFinale/bin
 renovationFinale/obj
 /obj/Debug/net6.0/RenovationFinale.GeneratedMSBuildEditorConfig.editorconfig
+/bin/Debug/net6.0/RenovationFinale.dll
