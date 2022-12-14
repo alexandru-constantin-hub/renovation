@@ -381,3 +381,4 @@ renovationFinale/obj
 /.vs/ProjectEvaluation/renovationfinale.metadata.v5.2
 /.vs/renovationFinale/DesignTimeBuild/.dtbcache.v2
 /.vs/ProjectEvaluation/renovationfinale.projects.v5.2
+/appsettings.json
