@@ -66,7 +66,7 @@ namespace RenovationFinale.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Email,MotDePasse,Etat,Role,IdActivateur,IdDesactivateur")] Utilisateur utilisateur)
+        public async Task<IActionResult> Create([Bind("Email,MotDePasse,Role")] Utilisateur utilisateur)
         {
             if (ModelState.IsValid)
             {
@@ -103,6 +103,7 @@ namespace RenovationFinale.Controllers
                 
                 return RedirectToAction("Create", "Membres");
             }
+            Debug.WriteLine("A sarit");
             ViewData["message"] = "createError";
             return View(utilisateur);
         }
