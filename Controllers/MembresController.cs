@@ -10,7 +10,7 @@ using RenovationFinale.Models;
 
 namespace RenovationFinale.Controllers
 {
-    [Authorize]
+    
     public class MembresController : Controller
     {
         private readonly RenovationFinaleContext _context;
@@ -21,6 +21,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Membres
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var renovationFinaleContext = _context.Membres.Include(m => m.IdUtilisateurNavigation);
@@ -28,6 +29,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Membres/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Membres == null)
@@ -58,19 +60,19 @@ namespace RenovationFinale.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUtilisateur,Nom,Prenom,Adresse,Telephone")] Membre membre)
+        public async Task<IActionResult> Create([Bind("IdUtilisateur, Nom,Prenom,Adresse,Telephone")] Membre membre)
         {
-            if (ModelState.IsValid)
-            {
+            
                 _context.Add(membre);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
             ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur", membre.IdUtilisateur);
-            return View(membre);
+            return RedirectToAction("Index", "Login");
         }
 
         // GET: Membres/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Membres == null)
@@ -90,6 +92,7 @@ namespace RenovationFinale.Controllers
         // POST: Membres/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdUtilisateur,Nom,Prenom,Adresse,Telephone")] Membre membre)
@@ -124,6 +127,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Membres/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Membres == null)
@@ -143,6 +147,7 @@ namespace RenovationFinale.Controllers
         }
 
         // POST: Membres/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
