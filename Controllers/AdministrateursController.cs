@@ -165,5 +165,21 @@ namespace RenovationFinale.Controllers
         {
           return _context.Administrateurs.Any(e => e.IdAdministrateur == id);
         }
+
+
+        //special methods
+        [Authorize]
+        public IActionResult gestionUtilisateurs()
+        {
+            
+            List<Utilisateur> utilisateurs = _context.Utilisateurs.ToList();
+            List<Membre> membres = _context.Membres.ToList();
+            List<Fournisseur> fournisseurs = _context.Fournisseurs.ToList();
+
+            ViewData["um"] = _context.Utilisateurs.Join(_context.Membres, u => u.IdUtilisateur, m => m.IdUtilisateur, (u, m) => new JoinUM { utilisateurVM = u, membreVM = m });
+            ViewData["uf"] = _context.Utilisateurs.Join(_context.Fournisseurs, u => u.IdUtilisateur, f => f.IdUtilisateur, (u, f) => new JoinUF { utilisateurVM = u, fournisseurVM = f });
+            return View();
+        }
+
     }
 }

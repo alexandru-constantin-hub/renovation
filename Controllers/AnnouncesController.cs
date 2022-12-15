@@ -24,7 +24,15 @@ namespace RenovationFinale.Controllers
         // GET: Announces
         public async Task<IActionResult> Index()
         {
-            var renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation);
+            var renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre);
+            return View(await renovationFinaleContext.ToListAsync());
+        }
+
+
+        // GET: Announces
+        public async Task<IActionResult>AnnouncesFourniseur()
+        {
+            var renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre);
             return View(await renovationFinaleContext.ToListAsync());
         }
 

@@ -106,7 +106,7 @@
                 @if (@cookieRole == "Administrateur")
                 {
                     <div class="nav-item"><a asp-controller="Administrateurs" asp-action="Index">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="Utilisateurs" asp-action="Index">Utilisateurs</a></div>
+                    <div class="nav-item"><a asp-controller="Administrateurs" asp-action="gestionUtilisateurs">Active ou desactive</a></div>
                     <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Announces</a></div>
                     <div class="nav-item"><a asp-controller="Typepieces" asp-action="Index">Type de piece</a></div>
                     <div class="nav-item"><a asp-controller="Typerenovations" asp-action="Index">Type de renovation</a></div>
@@ -122,7 +122,7 @@
                 @if (@cookieRole == "Fournisseur")
                 {
                     <div class="nav-item"><a asp-controller="Fournisseurs" asp-action="Index">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Rechercher une annonce</a></div>
+                    <div class="nav-item"><a asp-controller="Announces" asp-action="AnnouncesFourniseur">Rechercher une annonce</a></div>
                     <div class="nav-item"><a asp-controller="Offres" asp-action="Index">Mes offres</a></div>
                 }
                

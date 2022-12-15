@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+   
 }
 
 <h1>Index</h1>
@@ -13,31 +14,31 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Adresse)
+                Adresse
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Duree)
+                Duree
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dimensions)
+                Dimensions
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AutreInformations)
+                Autre informations
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Etat)
+                Etat
             </th>
-            <th>
+          @*  <th>
                 @Html.DisplayNameFor(model => model.IdDesactivateurNavigation)
+            </th>*@
+            <th>
+                Piece
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdPieceNavigation)
+                Renovation
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdTypeRenovationNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdUtilisateurNavigation)
+                Nom utilisateur
             </th>
             <th></th>
         </tr>
@@ -60,17 +61,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Etat)
             </td>
-            <td>
+          @*  <td>
                 @Html.DisplayFor(modelItem => item.IdDesactivateurNavigation.IdAdministrateur)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPieceNavigation.Titre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdPieceNavigation.IdPiece)
+                @Html.DisplayFor(modelItem => item.IdTypeRenovationNavigation.Titre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdTypeRenovationNavigation.IdTypeRenovation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.IdUtilisateur)
+                @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Nom)
+                @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Prenom)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdAnnounce">Edit</a> |

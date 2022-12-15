@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    IEnumerable<JoinUM>ums = ViewData["um"] as IEnumerable<JoinUM>;
+    IEnumerable<JoinUF> ufs = ViewData["uf"] as IEnumerable<JoinUF>;
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            @* <th>
+            @Html.DisplayNameFor(model => model.MotDePasse)
+            </th>*@
+            <th>
+                Etat
+            </th>
+            <th>
+                Role
+            </th>
+            @*<th>
+            Id Desactivateur
+            </th>
+            <th>
+            Id Activateur
+            </th>*@
+            <th>
+                Nom
+            </th>
+            <th>
+                Prenom
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Telephone
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (JoinUM item in ums)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.Etat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.Role)
+                </td>
+                @* <td>
+            @Html.DisplayFor(modelItem => item.utilisateurVM.IdDesactivateur)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.utilisateurVM.IdActivateurNavigation.IdAdministrateur)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.membreVM.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.membreVM.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.membreVM.Adresse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.membreVM.Telephone)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Utilisateurs" asp-route-id="@item.utilisateurVM.IdUtilisateur">Active / Desactive</a>
+                    @* <a asp-action="Details" asp-route-id="@item.utilisateurVM.IdUtilisateur">Details</a>*@
+                    @* <a asp-action="Delete" asp-route-id="@item.utilisateurVM.IdUtilisateur">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Email
+            </th>
+            @* <th>
+            @Html.DisplayNameFor(model => model.MotDePasse)
+            </th>*@
+            <th>
+                Etat
+            </th>
+            <th>
+                Role
+            </th>
+            @*<th>
+            Id Desactivateur
+            </th>
+            <th>
+            Id Activateur
+            </th>*@
+            <th>
+                Nom
+            </th>
+            <th>
+                Code fiscale
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Telephone
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (JoinUF item in ufs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.Etat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.Role)
+                </td>
+                @* <td>
+            @Html.DisplayFor(modelItem => item.utilisateurVM.IdDesactivateur)
+            </td>
+            <td>
+            @Html.DisplayFor(modelItem => item.utilisateurVM.IdActivateurNavigation.IdAdministrateur)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.fournisseurVM.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fournisseurVM.CodeFiscale    )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fournisseurVM.Adresse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fournisseurVM.Telephone)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Utilisateurs" asp-route-id="@item.utilisateurVM.IdUtilisateur">Active / Desactive</a>
+                    @* <a asp-action="Details" asp-route-id="@item.utilisateurVM.IdUtilisateur">Details</a>*@
+                    @* <a asp-action="Delete" asp-route-id="@item.utilisateurVM.IdUtilisateur">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
