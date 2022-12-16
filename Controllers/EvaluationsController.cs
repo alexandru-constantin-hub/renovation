@@ -50,7 +50,10 @@ namespace RenovationFinale.Controllers
         // GET: Evaluations/Create
         public IActionResult Create()
         {
-            ViewData["IdFournisseur"] = new SelectList(_context.Fournisseurs, "IdUtilisateur", "IdUtilisateur");
+
+
+
+            ViewBag.IdFournisseur = new SelectList(_context.Fournisseurs, "IdUtilisateur", "Nom");
             ViewData["IdUtilisateur"] = new SelectList(_context.Membres, "IdUtilisateur", "IdUtilisateur");
             return View();
         }
@@ -62,12 +65,12 @@ namespace RenovationFinale.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdUtilisateur,IdFournisseur,Note,Commentaire")] Evaluation evaluation)
         {
-            if (ModelState.IsValid)
-            {
+           
+            
                 _context.Add(evaluation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
             ViewData["IdFournisseur"] = new SelectList(_context.Fournisseurs, "IdUtilisateur", "IdUtilisateur", evaluation.IdFournisseur);
             ViewData["IdUtilisateur"] = new SelectList(_context.Membres, "IdUtilisateur", "IdUtilisateur", evaluation.IdUtilisateur);
             return View(evaluation);

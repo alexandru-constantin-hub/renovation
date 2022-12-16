@@ -1,7 +1,15 @@
-﻿@model RenovationFinale.Models.Evaluation
+﻿@using Microsoft.AspNetCore.Http
+@using System.Web;
+@using System.Collections;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor context
+@model RenovationFinale.Models.Evaluation
+
 
 @{
     ViewData["Title"] = "Create";
+    var userId = context.HttpContext.Request.Cookies["nameIdentifier"];
+   
+    
 }
 
 <h1>Create</h1>
@@ -12,13 +20,17 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IdUtilisateur" class="control-label"></label>
-                <select asp-for="IdUtilisateur" class ="form-control" asp-items="ViewBag.IdUtilisateur"></select>
-            </div>
+            @*<div class="form-group">
+                <label asp-for="IdUtilisateur" class="control-label"></label>*@
+            <input name="IdUtilisateur" value="userId" type="hidden" />
+              @*  <select asp-for="IdUtilisateur" class ="form-control" asp-items="ViewBag.IdUtilisateur"></select>
+            </div>*@
             <div class="form-group">
                 <label asp-for="IdFournisseur" class="control-label"></label>
-                <select asp-for="IdFournisseur" class ="form-control" asp-items="ViewBag.IdFournisseur"></select>
+               
+                <select asp-for="IdFournisseur" class="form-control" asp-items="ViewBag.IdFournisseur"></select>
+           @* <input name="IdFournisseur" value="ViewBag.IdFournisseur" type="hidden" />
+                *@
             </div>
             <div class="form-group">
                 <label asp-for="Note" class="control-label"></label>
