@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNetCore.Http
+@using System.Web;
+@using System.Collections;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor context
+@model RenovationFinale.Models.Offre
+
+@{
+    ViewData["Title"] = "Create";
+    var userId = context.HttpContext.Request.Cookies["nameIdentifier"];
+    
+
+}
+
+<h1>Create</h1>
+
+<h4>Offre</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="CreateOffre">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="IdAnnounce" class="control-label"></label>*@
+            <input name="IdAnnounce" class="form-control" value="@ViewBag.IdAnnounce" placeholder="@ViewBag.IdAnnounce"  />
+
+            @* </div>*@
+            @*  <div class="form-group">
+            <label asp-for="IdFournisseur" class="control-label"></label>*@
+            <input name="IdFournisseur" class="form-control" value="@userId" placeholder="@ViewBag.IdFournisseur"  />
+            @*    @*<select asp-for="IdFournisseur" class ="form-control" asp-items="ViewBag.IdFournisseur"></select>*@
+            @*</div>*@
+            <div class="form-group">
+                <label asp-for="Budget" class="control-label"></label>
+                <input asp-for="Budget" class="form-control" />
+                <span asp-validation-for="Budget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duree" class="control-label"></label>
+                <input asp-for="Duree" class="form-control" />
+                <span asp-validation-for="Duree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateCommence" class="control-label"></label>
+                <input asp-for="DateCommence" class="form-control" />
+                <span asp-validation-for="DateCommence" class="text-danger"></span>
+            </div>
+            @*   <div class="form-group">
+            <label asp-for="Etat" class="control-label"></label>
+            <input asp-for="Etat" class="form-control" />
+            <span asp-validation-for="Etat" class="text-danger"></span>
+            </div>*@
+            <input name="Etat" type="hidden" value="Attendre" />
+            <div class="form-group">
+                <input type="submit" value="CreateOffre" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AnnouncesFourniseur">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

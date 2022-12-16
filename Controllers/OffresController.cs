@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Core;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,7 @@ namespace RenovationFinale.Controllers
     public class OffresController : Controller
     {
         private readonly RenovationFinaleContext _context;
+       
 
         public OffresController(RenovationFinaleContext context)
         {
@@ -23,7 +25,8 @@ namespace RenovationFinale.Controllers
         // GET: Offres
         public async Task<IActionResult> Index()
         {
-            var renovationFinaleContext = _context.Offres.Include(o => o.IdAnnounceNavigation).Include(o => o.IdFournisseurNavigation);
+            var userId = Int32.Parse(Request.Cookies["nameIdentifier"]);
+            var renovationFinaleContext = _context.Offres.Where(id=>id.IdFournisseur == userId).Include(o => o.IdAnnounceNavigation).Include(o => o.IdFournisseurNavigation);
             return View(await renovationFinaleContext.ToListAsync());
         }
 

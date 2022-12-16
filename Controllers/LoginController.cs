@@ -78,16 +78,16 @@ namespace RenovationFinale.Controllers
 
                     return RedirectToAction("Apercu", "EspaceMembres");
                 }
-                if(user.Role == "Furnisseur")
+                if(user.Role == "Fournisseur")
                 {
                     if (userActiveFurniseur == null)
                     {
-                        return RedirectToAction("Create", "Furnisseurs");
+                        return RedirectToAction("Create", "Fournisseurs");
                     }
 
                     Response.Cookies.Append("name", userActiveFurniseur.Nom);
 
-                    return RedirectToAction("Index", "Furnisseurs");
+                    return RedirectToAction("Apercu", "EspaceFournisseurs");
                 }
 
 

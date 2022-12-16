@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\EspaceFournisseur\" />
     <Folder Include="Views\EspaceAdministrator\" />
   </ItemGroup>
 
