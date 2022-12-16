@@ -76,7 +76,7 @@ namespace RenovationFinale.Controllers
                     }
                     Response.Cookies.Append("name", userActiveMembre.Nom);
 
-                    return RedirectToAction("Index", "Membres");
+                    return RedirectToAction("Apercu", "EspaceMembres");
                 }
                 if(user.Role == "Furnisseur")
                 {

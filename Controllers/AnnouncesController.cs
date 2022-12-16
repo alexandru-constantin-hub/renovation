@@ -29,11 +29,18 @@ namespace RenovationFinale.Controllers
         }
 
 
-        // GET: Announces
+        // GET: Announces with name for piece and renovation
         public async Task<IActionResult>AnnouncesFourniseur()
         {
             var renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre);
             return View(await renovationFinaleContext.ToListAsync());
+        }
+
+        //GET: List of announcements with offres
+        public async Task<IActionResult> AnnouncesOffres()
+        {
+            List<JoinAO> renovationFinaleContext = _context.Announces.Include(a => a.IdPieceNavigation).Include(a=>a.IdTypeRenovationNavigation).Join(_context.Offres.Include(a => a.IdFournisseurNavigation), a => a.IdAnnounce, o => o.IdAnnounce, (a, o) => new { a, o }).Select(x => new JoinAO { announceVM = x.a, offreVM = x.o }).ToList();
+            return View(renovationFinaleContext);
         }
 
         // GET: Announces/Details/5
@@ -79,18 +86,24 @@ namespace RenovationFinale.Controllers
             {
                 int howMany = _context.Announces.OrderByDescending(i => i.IdAnnounce).FirstOrDefault().IdAnnounce;
                 string getIdUtilisateur = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                string getUserRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
                 int idAnnounce = (howMany + 1);
 
                 announce.IdAnnounce = idAnnounce;
                 announce.IdUtilisateur = Convert.ToInt32(getIdUtilisateur);
                 _context.Add(announce);
                 await _context.SaveChangesAsync();
+                if (getUserRole == "Membre")
+                {
+                    return RedirectToAction("MesAnnounces", "EspaceMembres");
+                }
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdDesactivateur"] = new SelectList(_context.Administrateurs, "IdAdministrateur", "IdAdministrateur", announce.IdDesactivateur);
             ViewData["IdPiece"] = new SelectList(_context.Typepieces, "IdPiece", "IdPiece", announce.IdPiece);
             ViewData["IdTypeRenovation"] = new SelectList(_context.Typerenovations, "IdTypeRenovation", "IdTypeRenovation", announce.IdTypeRenovation);
             ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur", announce.IdUtilisateur);
+            
             return View(announce);
         }
 

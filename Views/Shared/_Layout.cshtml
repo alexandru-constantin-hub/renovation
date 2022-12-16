@@ -113,11 +113,11 @@
                 }
                 @if (@cookieRole == "Membre")
                 {
-                    <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="Announces" asp-action="Create">Cree une announce</a></div>
-                    <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Mes annonces</a></div>
-                    <div class="nav-item"><a asp-controller="Offres" asp-action="Index">Des offres</a></div>
-                    <div class="nav-item"><a asp-controller="Fournisseurs" asp-action="Index">Entreprises</a></div>
+                    <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="Apercu">Apercu</a></div>
+                    <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="CreeAnnounce">Cree une announce</a></div>
+                    <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="MesAnnonces">Mes annonces</a></div>
+                    <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="Offres">Des offres</a></div>
+                    <div class="nav-item"><a asp-controller="Evaluations" asp-action="Index">Entreprises</a></div>
                 }
                 @if (@cookieRole == "Fournisseur")
                 {

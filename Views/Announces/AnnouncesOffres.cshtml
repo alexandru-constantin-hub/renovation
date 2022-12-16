@@ -1,0 +1,134 @@
+﻿@model IEnumerable<RenovationFinale.Models.JoinAO>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<h1>Announces list</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Duree
+            </th>
+            <th>
+                Dimensions
+            </th>
+            <th>
+                Autre informations
+            </th>
+            <th>
+                Etat announce
+            </th>
+            @*  <th>
+            @Html.DisplayNameFor(model => model.IdDesactivateurNavigation)
+            </th>*@
+            <th>
+               Type renovation
+            </th>
+            <th>
+                Type piece
+            </th>
+            <th>
+                Fournisseur
+            </th>
+            <th>
+                Budget
+            </th>
+            <th>
+                Duree
+            </th>
+            <th>
+                Date commence
+            </th>
+            <th>
+                Etat offre
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.announceVM.Adresse)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.announceVM.Duree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.announceVM.Dimensions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.announceVM.AutreInformations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.announceVM.Etat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.announceVM.IdTypeRenovationNavigation.Titre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.announceVM.IdPieceNavigation.Titre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.IdFournisseurNavigation.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.Budget)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.Duree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.DateCommence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.Etat)
+                </td>
+                
+              @*  <td>
+                    @Html.DisplayFor(modelItem => item.Duree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dimensions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AutreInformations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Etat)
+                </td>*@
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.IdDesactivateurNavigation.IdAdministrateur)
+            </td>*@
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.IdPieceNavigation.Titre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTypeRenovationNavigation.Titre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Nom)
+                    @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Prenom)
+                </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.IdAnnounce.Offre)
+                    
+                </td>*@
+                <td>
+                    @*<a asp-action="CreateWithIDAnnounce" asp-controller="Offres" asp-route-id="@item.IdAnnounce">Faire une offre</a>*@
+                    @*<a asp-action="Edit" asp-route-id="@item.IdAnnounce">Edit</a> *@
+                    @* <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>|*@
+                    @*<a asp-action="Delete" asp-route-id="@item.IdAnnounce">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

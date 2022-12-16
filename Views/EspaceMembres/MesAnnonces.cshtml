@@ -1,0 +1,86 @@
+﻿@model IEnumerable<RenovationFinale.Models.Announce>
+
+@{
+    ViewData["Title"] = "Espace Member - Mes Announces";
+
+}
+
+<h1>Mes Announces</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="Announces">Nouvell announce</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Duree
+            </th>
+            <th>
+                Dimensions
+            </th>
+            <th>
+                Autre informations
+            </th>
+            <th>
+                Etat
+            </th>
+            @*  <th>
+            @Html.DisplayNameFor(model => model.IdDesactivateurNavigation)
+            </th>*@
+            <th>
+                Piece
+            </th>
+            <th>
+                Renovation
+            </th>
+            <th>
+                Nom utilisateur
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adresse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dimensions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AutreInformations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Etat)
+                </td>
+                @*  <td>
+            @Html.DisplayFor(modelItem => item.IdDesactivateurNavigation.IdAdministrateur)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdPieceNavigation.Titre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdTypeRenovationNavigation.Titre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Nom)
+                    @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Prenom)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdAnnounce">Desative / Active</a>
+                    <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>
+                   @* <a asp-action="Delete" asp-route-id="@item.IdAnnounce">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

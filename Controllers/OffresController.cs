@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json.Linq;
 using RenovationFinale.Models;
 
 namespace RenovationFinale.Controllers
@@ -57,22 +55,6 @@ namespace RenovationFinale.Controllers
             return View();
         }
 
-        // GET: Offres/Create with id
-        public IActionResult CreateWithIDAnnounce(int? id)
-        {
-
-            
-            ViewBag.IdAnnounce = id;
-            if (Request.Cookies["nameIdentifier"] != null)
-            {
-                
-                ViewBag.idFournisseur = Request.Cookies["nameIdentifier"];
-            }
-            
-
-            return View("Create");
-        }
-
         // POST: Offres/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -80,18 +62,16 @@ namespace RenovationFinale.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdAnnounce,IdFournisseur,Budget,Duree,DateCommence,Etat")] Offre offre)
         {
-          
-            
+            if (ModelState.IsValid)
+            {
                 _context.Add(offre);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            
+            }
             ViewData["IdAnnounce"] = new SelectList(_context.Announces, "IdAnnounce", "IdAnnounce", offre.IdAnnounce);
             ViewData["IdFournisseur"] = new SelectList(_context.Fournisseurs, "IdUtilisateur", "IdUtilisateur", offre.IdFournisseur);
             return View(offre);
         }
-
-        
 
         // GET: Offres/Edit/5
         public async Task<IActionResult> Edit(int? id)
