@@ -19,8 +19,23 @@ namespace RenovationFinale.Controllers
         }
 
         public IActionResult Apercu()
-        { 
-           return View("Apercu");
+        {
+
+            int idUser = int.Parse(Request.Cookies["NameIdentifier"]);
+            int announcesNumber = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre).Where(a => a.IdUtilisateur == idUser).Count();
+            List<JoinAO> offresNumber = _context.Announces.Where(a => a.IdUtilisateur == idUser).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Join(_context.Offres.Include(a => a.IdFournisseurNavigation), a => a.IdAnnounce, o => o.IdAnnounce, (a, o) => new { a, o }).Select(x => new JoinAO { announceVM = x.a, offreVM = x.o }).ToList();
+            int offresNumberAttendre = offresNumber.Where(e => e.offreVM.Etat == "Attendre").Count();
+            int offresNumberAccepte = offresNumber.Where(e => e.offreVM.Etat == "Accepte").Count();
+            int offresNumberRefuse = offresNumber.Where(e => e.offreVM.Etat == "Refuse").Count();
+
+            ViewBag.offresNumber = offresNumber.Count();
+            ViewBag.offresNumberAttendre = offresNumberAttendre;
+            ViewBag.offresNumberAccepte = offresNumberAccepte;
+            ViewBag.offresNumberRefuse = offresNumberRefuse;
+            ViewBag.announcesNumber = announcesNumber;
+
+
+            return View();
         }
 
         // GET: Announces/Create
@@ -161,7 +176,11 @@ namespace RenovationFinale.Controllers
             return RedirectToAction("MesAnnounces");
         }
 
+
         
+
+
+
 
         private bool OffreExists(int id)
         {

@@ -77,21 +77,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.announceVM.IdPieceNavigation.Titre)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.offreVM.IdFournisseurNavigation.Nom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.offreVM.Budget)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.offreVM.Duree)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.offreVM.DateCommence)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.offreVM.Etat)
-                </td>
+                
 
                 @*  <td>
             @Html.DisplayFor(modelItem => item.Duree)
@@ -128,6 +114,26 @@
                     @* <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>|*@
                     @*<a asp-action="Delete" asp-route-id="@item.IdAnnounce">Delete</a>*@
                 </td>
+            </tr>
+            <tr>
+                @foreach (var subitem in Model.Where(id => id.announceVM.IdAnnounce == item.offreVM.IdAnnounce))
+                {
+                    <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.IdFournisseurNavigation.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.Budget)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.Duree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.DateCommence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.Etat)
+                </td>
+                }
             </tr>
         }
     </tbody>

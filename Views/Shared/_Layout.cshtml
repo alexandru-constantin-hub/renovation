@@ -101,9 +101,10 @@
             </div>
         </nav>
     </header>
+    <section>
     <div class="container">
         <main role="main" class="pb-3">
-            <div class="w-100 d-flex flex-row justify-content-around navbar navbar-light mb-4 pb-4">
+                <div class="w-100 d-flex flex-row justify-content-around navbar navbar-expand-lg bg-light mb-4 pb-4">
                 @if (@cookieRole == "Administrateur")
                 {
                     <div class="nav-item"><a asp-controller="Administrateurs" asp-action="Index">Apercu</a></div>
