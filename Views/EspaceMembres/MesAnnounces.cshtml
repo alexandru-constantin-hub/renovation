@@ -4,6 +4,23 @@
     ViewData["Title"] = "Espace Member - Mes Announces";
 
 }
+<div class="row mt-2">
+    <div class="col-md-4">
+        @if (TempData["messageError"] != null)
+        {
+            <div class="alert alert-success position-absolute top-0 end-0" role="alert">
+                @TempData["messageError"]
+            </div>
+        }
+         @if (TempData["messageSuccess"] != null)
+        {
+            <div class="alert alert-success position-absolute top-0 end-0" role="alert">
+                @TempData["messageSuccess"]
+            </div>
+        }
+       
+    </div>
+</div>
 
 <h1>Mes Announces</h1>
 
@@ -76,8 +93,20 @@
                     @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Prenom)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.IdAnnounce">Desative / Active</a>
-                    <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>
+                    @if (@item.Etat == "Activé")
+                    {
+
+                        @Html.ActionLink("Desactive", "Desactive","EspaceMembres",new { id = @item.IdAnnounce })
+                        @* <a asp-action="Desactive" asp-route-id="@item.IdAnnounce" class="text text-danger" type="submit">Désactivé</a>*@
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Active", "Active","EspaceMembres",new { id = @item.IdAnnounce })
+                        @*<a asp-action="Active" asp-route-id="@item.IdAnnounce" class="text" type="submit">Active</a>*@
+                    }
+                    
+                   
+                   @* <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>*@
                    @* <a asp-action="Delete" asp-route-id="@item.IdAnnounce">Delete</a>*@
                 </td>
             </tr>

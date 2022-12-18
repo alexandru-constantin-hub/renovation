@@ -4,3 +4,10 @@
 }
 
 <h1>Apercu</h1>
+
+@if (TempData["messageSuccess"] != null)
+{
+   <div class="alert alert-success position-absolute top-0 end-0" role="alert">
+      @TempData["messageSuccess"]
+   </div>
+}

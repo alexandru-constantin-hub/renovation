@@ -64,6 +64,7 @@ namespace RenovationFinale.Controllers
                     if (userActiveAdministrateur == null) {
                         return RedirectToAction("Create", "Administrateurs");
                     }
+                    TempData["messageSuccess"] = "Connectez-vous avec succès";
                     Response.Cookies.Append("name", userActiveAdministrateur.Nom);
                     return RedirectToAction("Index", "Administrateurs");
                 }
@@ -75,7 +76,7 @@ namespace RenovationFinale.Controllers
                         return RedirectToAction("Create", "Utilisateurs");
                     }
                     Response.Cookies.Append("name", userActiveMembre.Nom);
-
+                    TempData["messageSuccess"] = "Connectez-vous avec succès";
                     return RedirectToAction("Apercu", "EspaceMembres");
                 }
                 if(user.Role == "Fournisseur")
@@ -84,13 +85,13 @@ namespace RenovationFinale.Controllers
                     {
                         return RedirectToAction("Create", "Fournisseurs");
                     }
-
+                    TempData["messageSuccess"] = "Connectez-vous avec succès";
                     Response.Cookies.Append("name", userActiveFurniseur.Nom);
 
                     return RedirectToAction("Apercu", "EspaceFournisseurs");
                 }
 
-
+               
                 return RedirectToAction("Index", "Utilisateurs");
             }
 
@@ -99,8 +100,8 @@ namespace RenovationFinale.Controllers
                 return RedirectToAction("Desactive", "Login");
 
             }
-           
-            return RedirectToAction("Index", "Home");
+            TempData["messageError"] = "Email ou mot de passe incorrect. Veuillez réessayer!";
+            return RedirectToAction("Index", "Login");
         }
 
        

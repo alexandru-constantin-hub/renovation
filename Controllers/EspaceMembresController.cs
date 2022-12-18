@@ -34,7 +34,7 @@ namespace RenovationFinale.Controllers
         }
 
         // GET: Announces
-        public async Task<IActionResult> MesAnnonces()
+        public async Task<IActionResult> MesAnnounces()
         {
 
             int idUser = int.Parse(Request.Cookies["NameIdentifier"]);
@@ -74,6 +74,10 @@ namespace RenovationFinale.Controllers
             return View("EditOffre");
         }
 
+
+
+        
+
         // POST: Offres/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -112,9 +116,61 @@ namespace RenovationFinale.Controllers
         }
 
 
+        // GET: Announces/Edit/5
+        public async Task<IActionResult> Desactive(int? id)
+        {
+
+            if (id == null || _context.Announces == null)
+            {
+                return NotFound();
+            }
+
+            var announce = await _context.Announces.FindAsync(id);
+            if (announce == null)
+            {
+                return NotFound();
+            }
+            announce.Etat = "Désactivé";
+            _context.Update(announce);
+            await _context.SaveChangesAsync();
+            TempData["MessageSuccess"] = "Message désactivé";
+
+            return RedirectToAction("MesAnnounces");
+        }
+
+
+        // GET: Announces/Edit/5
+        public async Task<IActionResult> Active(int? id)
+        {
+
+            if (id == null || _context.Announces == null)
+            {
+                return NotFound();
+            }
+
+            var announce = await _context.Announces.FindAsync(id);
+            if (announce == null)
+            {
+                return NotFound();
+            }
+            announce.Etat = "Activé";
+            _context.Update(announce);
+            await _context.SaveChangesAsync();
+            TempData["MessageSuccess"] = "Message Active";
+
+            return RedirectToAction("MesAnnounces");
+        }
+
+        
+
         private bool OffreExists(int id)
         {
             return _context.Offres.Any(e => e.IdAnnounce == id);
+        }
+
+        private bool AnnounceExists(int id)
+        {
+            return _context.Announces.Any(e => e.IdAnnounce == id);
         }
 
 
