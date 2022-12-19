@@ -72,63 +72,25 @@ namespace RenovationFinale.Controllers
         //Accept or not the offer
 
         // GET: Offres/Edit/5
-        public async Task<IActionResult> EditOffre(int? id)
+        public async Task<IActionResult> EditOffre(int? idAnnounce, int? idFournisseur, string message)
         {
-            if (id == null || _context.Offres == null)
-            {
-                return NotFound();
-            }
-
-            var offre = await _context.Offres.FindAsync(id);
+          
+            var offre = await _context.Offres.FindAsync(idAnnounce, idFournisseur);
             if (offre == null)
             {
                 return NotFound();
             }
-            ViewData["IdAnnounce"] = new SelectList(_context.Announces, "IdAnnounce", "IdAnnounce", offre.IdAnnounce);
-            ViewData["IdFournisseur"] = new SelectList(_context.Fournisseurs, "IdUtilisateur", "IdUtilisateur", offre.IdFournisseur);
-            return View("EditOffre");
+
+
+            offre.Etat = message;
+            _context.Update(offre);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Offres");
         }
 
 
 
-        
-
-        // POST: Offres/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditOffre(int id, [Bind("IdAnnounce,IdFournisseur,Budget,Duree,DateCommence,Etat")] Offre offre)
-        {
-            if (id != offre.IdAnnounce)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(offre);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!OffreExists(offre.IdAnnounce))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdAnnounce"] = new SelectList(_context.Announces, "IdAnnounce", "IdAnnounce", offre.IdAnnounce);
-            ViewData["IdFournisseur"] = new SelectList(_context.Fournisseurs, "IdUtilisateur", "IdUtilisateur", offre.IdFournisseur);
-            return View("Offres");
-        }
 
 
         // GET: Announces/Edit/5
