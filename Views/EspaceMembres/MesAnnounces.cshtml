@@ -96,17 +96,17 @@
                     @if (@item.Etat == "Activé")
                     {
 
-                        @Html.ActionLink("Desactive", "Desactive","EspaceMembres",new { id = @item.IdAnnounce })
+                        @Html.ActionLink("Desactive", "Desactive","EspaceMembres",new { id = @item.IdAnnounce }, new { @class = "btn btn-sm btn-danger" })
                         @* <a asp-action="Desactive" asp-route-id="@item.IdAnnounce" class="text text-danger" type="submit">Désactivé</a>*@
                     }
                     else
                     {
-                        @Html.ActionLink("Active", "Active","EspaceMembres",new { id = @item.IdAnnounce })
+                        @Html.ActionLink("Active", "Active","EspaceMembres",new { id = @item.IdAnnounce }, new { @class = "btn btn-sm btn-danger" })
                         @*<a asp-action="Active" asp-route-id="@item.IdAnnounce" class="text" type="submit">Active</a>*@
                     }
                     
                    
-                   @* <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>*@
+                   <a asp-action="Details" asp-route-id="@item.IdAnnounce" asp-controller="Announces" class="btn btn-sm btn-outline-primary">Details</a>
                    @* <a asp-action="Delete" asp-route-id="@item.IdAnnounce">Delete</a>*@
                 </td>
             </tr>
