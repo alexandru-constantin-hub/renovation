@@ -26,24 +26,24 @@
               @*  <select asp-for="IdUtilisateur" class ="form-control" asp-items="ViewBag.IdUtilisateur"></select>
             </div>*@
             <div class="form-group">
-                <label asp-for="IdFournisseur" class="control-label"></label>
+                <label asp-for="IdFournisseur" class="control-label mb-2">Fournisseur</label>
                
-                <select asp-for="IdFournisseur" class="form-control" asp-items="ViewBag.IdFournisseur"></select>
+                <select asp-for="IdFournisseur" class="form-control mb-2" asp-items="ViewBag.IdFournisseur"></select>
            @* <input name="IdFournisseur" value="ViewBag.IdFournisseur" type="hidden" />
                 *@
             </div>
             <div class="form-group">
-                <label asp-for="Note" class="control-label"></label>
-                <input asp-for="Note" class="form-control" />
+                <label asp-for="Note" class="control-label mb-2"></label>
+                <input asp-for="Note" class="form-control mb-2" />
                 <span asp-validation-for="Note" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Commentaire" class="control-label"></label>
-                <input asp-for="Commentaire" class="form-control" />
+                <label asp-for="Commentaire" class="control-label mb-2"></label>
+                <input asp-for="Commentaire" class="form-control mb-2" />
                 <span asp-validation-for="Commentaire" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary mt-4 mb-4" />
             </div>
         </form>
     </div>

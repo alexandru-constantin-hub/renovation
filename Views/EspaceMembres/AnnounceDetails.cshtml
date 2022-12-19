@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Http
+@using System.Web;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor context
+@model RenovationFinale.Models.Announce
+
+@{
+    ViewData["Title"] = "Details";
+    var cookieRole = context.HttpContext.Request.Cookies["role"];
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Announce</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.Duree)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Duree)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.Dimensions)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Dimensions)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.AutreInformations)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.AutreInformations)
+        </dd>
+        <dt class = "col-sm-5">
+            @Html.DisplayNameFor(model => model.Etat)
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.Etat)
+        </dd>
+        @if (cookieRole == "Administrateur")
+        {
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.IdDesactivateurNavigation)
+            </dt>
+
+            <dd class = "col-sm-7">
+                @Html.DisplayFor(model => model.IdDesactivateurNavigation.IdAdministrateur)
+        </dd>
+        }
+        <dt class = "col-sm-5">
+            Piece
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.IdPieceNavigation.Titre)
+        </dd>
+        <dt class = "col-sm-5">
+            Type renovation
+        </dt>
+        <dd class = "col-sm-7">
+            @Html.DisplayFor(model => model.IdTypeRenovationNavigation.Titre)
+        </dd>
+        @if (cookieRole == "Administrateur")
+        {
+            <dt class = "col-sm-5">
+                @Html.DisplayNameFor(model => model.IdUtilisateurNavigation)
+            </dt>
+            <dd class = "col-sm-7">
+                @Html.DisplayFor(model => model.IdUtilisateurNavigation.IdUtilisateur)
+        </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="AnnounceEdit" asp-route-id="@Model?.IdAnnounce" asp-controller="EspaceMembres">Edit</a> |
+    <a asp-action="MesAnnounces" asp-controller="EspaceMembres">Back to List</a>
+</div>
