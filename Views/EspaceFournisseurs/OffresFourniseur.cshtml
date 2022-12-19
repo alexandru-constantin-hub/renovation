@@ -7,14 +7,35 @@
 @{
     ViewData["Title"] = "Index";
     var userId = Convert.ToInt32(context.HttpContext.Request.Cookies["nameIdentifier"]);
+    
 
 }
 
 <h1>Announces list</h1>
 
+<div class="row g-3 align-items-center mt-3 mb-3">
+    <div class="col-auto">
+        <label for="myInput" class="col-form-label">Chercher</label>
+    </div>
+    <div class="col-auto">
+        <input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Chercher" title="Chercher">
+    </div>
+    <div class="col-auto">
+        <label for="piece" class="col-form-label">Type de piece</label>
+    </div>
+    <div class="col-auto">
+        @Html.DropDownList("piece",null,"",new { @class = "form-control"})
+    </div>
+    <div class="col-auto">
+        <label for="renovation" class="col-form-label">Type de renovation</label>
+    </div>
+    <div class="col-auto">
+        @Html.DropDownList("renovation",null,"",new { @class = "form-control"})
+    </div>
+</div>
 
 
-<table class="table">
+<table class="table" >
     <thead>
         <tr>
             <th>Announce</th>
@@ -72,7 +93,7 @@
             </th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
         @foreach (var item in Model)
         {
             <tr>
