@@ -51,12 +51,23 @@ namespace RenovationFinale.Controllers
         // GET: Announces with name for piece and renovation
         public async Task<IActionResult> AnnouncesFourniseur()
         {
-            var renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre);
-            return View(await renovationFinaleContext.ToListAsync());
+            var userId = Int32.Parse(Request.Cookies["nameIdentifier"]);
+            //List<JoinAO> renovationFinaleContext1 = _context.Announces.Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Join(_context.Offres.Include(a => a.IdFournisseurNavigation), a => a.IdAnnounce, o => o.IdAnnounce, (a, o) => new { a, o }).Select(x => new JoinAO { announceVM = x.a, offreVM = x.o }).ToList();
+            List<JoinAO> renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre).Where(e=>e.Etat == "Activé").Join(_context.Offres.Include(a => a.IdFournisseurNavigation).Where(id=>id.IdFournisseur != userId), a => a.IdAnnounce, o => o.IdAnnounce, (a, o) => new { a, o }).Select(x => new JoinAO { announceVM = x.a, offreVM = x.o }).ToList();
+            return View(renovationFinaleContext);
         }
-        
 
-        
+
+        // GET: Announces with name for piece and renovation
+        public async Task<IActionResult> OffresFourniseur()
+        {
+            var userId = Int32.Parse(Request.Cookies["nameIdentifier"]);
+            //List<JoinAO> renovationFinaleContext1 = _context.Announces.Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Join(_context.Offres.Include(a => a.IdFournisseurNavigation), a => a.IdAnnounce, o => o.IdAnnounce, (a, o) => new { a, o }).Select(x => new JoinAO { announceVM = x.a, offreVM = x.o }).ToList();
+            List<JoinAO> renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre).Where(e => e.Etat == "Activé").Join(_context.Offres.Include(a => a.IdFournisseurNavigation).Where(id => id.IdFournisseur == userId), a => a.IdAnnounce, o => o.IdAnnounce, (a, o) => new { a, o }).Select(x => new JoinAO { announceVM = x.a, offreVM = x.o }).ToList();
+            return View(renovationFinaleContext);
+        }
+
+
 
 
     }

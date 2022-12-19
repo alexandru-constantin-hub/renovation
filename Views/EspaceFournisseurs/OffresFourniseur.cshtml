@@ -17,6 +17,19 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Announce</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Mes offre</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
             <th>
                 Adresse
             </th>
@@ -44,7 +57,15 @@
             <th>
                 Nom utilisateur
             </th>
-            <th></th>
+            <th>
+                Budget proposé
+            </th>
+            <th>
+                Duree
+            </th>
+            <th>
+                Date commence
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -79,9 +100,18 @@
                     @Html.DisplayFor(modelItem => item.announceVM.IdUtilisateurNavigation.Membre.Nom)
                     @Html.DisplayFor(modelItem => item.announceVM.IdUtilisateurNavigation.Membre.Prenom)
                 </td>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.Budget)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.Duree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.offreVM.DateCommence)
+                </td>
                 <td>
 
-                    <a asp-action="CreateOffre" asp-controller="EspaceFournisseurs" asp-route-id="@item.announceVM.IdAnnounce">Faire une offre</a>
+                  @*  <a asp-action="CreateOffre" asp-controller="EspaceFournisseurs" asp-route-id="@item.announceVM.IdAnnounce">Faire une offre</a>*@
                                        
                     @*<a asp-action="Edit" asp-route-id="@item.IdAnnounce">Edit</a> *@
                     @* <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>|*@
