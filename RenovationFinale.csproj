@@ -20,4 +20,11 @@
     <Folder Include="Views\EspaceAdministrator\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\EspaceFournisseurs\Apercu.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

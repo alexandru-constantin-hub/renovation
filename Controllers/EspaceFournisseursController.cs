@@ -18,8 +18,22 @@ namespace RenovationFinale.Controllers
 
         public IActionResult Apercu()
         {
+
+            int idUser = int.Parse(Request.Cookies["NameIdentifier"]);
+            int offresNumber = _context.Offres.Where(a => a.IdFournisseur == idUser).Count();
+            var offres = _context.Offres.Where(a => a.IdFournisseur == idUser);
+            int offresNumberAttendre = offres.Where(e => e.Etat == "Attendre").Count();
+            int offresNumberAccepte = offres.Where(e => e.Etat == "Accepte").Count();
+            int offresNumberRefuse = offres.Where(e => e.Etat == "Refuse").Count();
+
+            ViewBag.offresNumber = offresNumber;
+            ViewBag.offresNumberAttendre = offresNumberAttendre;
+            ViewBag.offresNumberAccepte = offresNumberAccepte;
+            ViewBag.offresNumberRefuse = offresNumberRefuse;
+
             return View();
         }
+
 
         // GET: Offres/Create
         public IActionResult CreateOffre(int? id)

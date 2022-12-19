@@ -1,6 +1,54 @@
 ﻿@{
-    ViewData["Title"] = "Membre - Apercu";
+    ViewData["Title"] = "Fournisseur - Apercu";
 
 }
 
-<h1>Apercu</h1>
+<h1 class="mb-4">Apercu</h1>
+
+@if (TempData["messageSuccess"] != null)
+{
+    <div class="alert alert-success position-absolute top-0 end-0" role="alert">
+        @TempData["messageSuccess"]
+    </div>
+}
+
+<div class="row mb-4">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewBag.offresNumberAttendre offres proposées sont en attente</h5>
+                <p class="card-text">@ViewBag.offresNumberAttendre offres proposées sont en attente.</p>
+                <a href="../EspaceFournisseurs/OffresFourniseur" class="btn btn-primary">Mes offres</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Vous avez fait @ViewBag.offresNumber propositions</h5>
+                <p class="card-text">Vous avez fait @ViewBag.offresNumber propositions. Il est recommandé d'en faire plus.</p>
+                <a href="../EspaceFournisseurs/AnnouncesFourniseur" class="btn btn-primary">Offres</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mb-4">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Félicitations, vous avez @ViewBag.announcesNumber offres acceptées</h5>
+                <p class="card-text">ous avez @ViewBag.announcesNumber offres acceptées</p>
+                <a href="../EspaceFournisseurs/AnnouncesFourniseur" class="btn btn-primary">Annonces</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Vous avez @ViewBag.offresNumberRefuse offres refusées</h5>
+                <p class="card-text">Essayez d'offrir un budget plus compétitif</p>
+                <a href="../EspaceFournisseurs/AnnouncesFourniseur" class="btn btn-primary">Evaluer une entreprise</a>
+            </div>
+        </div>
+    </div>
+</div>
