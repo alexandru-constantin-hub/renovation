@@ -22,7 +22,7 @@ namespace RenovationFinale.Controllers
 
         // GET: Membres
         [Authorize]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> InformationMembre()
         {
             var renovationFinaleContext = _context.Membres.Include(m => m.IdUtilisateurNavigation);
             return View(await renovationFinaleContext.ToListAsync());
@@ -102,8 +102,7 @@ namespace RenovationFinale.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+            
                 try
                 {
                     _context.Update(membre);
@@ -120,10 +119,11 @@ namespace RenovationFinale.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur", membre.IdUtilisateur);
-            return View(membre);
+               ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur", membre.IdUtilisateur);
+            return RedirectToAction("InformationMembre", "EspaceMembres");
+
+
+
         }
 
         // GET: Membres/Delete/5

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RenovationFinale.Models;
@@ -223,6 +224,14 @@ namespace RenovationFinale.Controllers
         }
 
 
+        // GET: Membres
+        [Authorize]
+        public async Task<IActionResult> InformationMembre()
+        {
+            int idUser = int.Parse(Request.Cookies["NameIdentifier"]);
+            var renovationFinaleContext = _context.Membres.Include(m => m.IdUtilisateurNavigation).Where(a => a.IdUtilisateur == idUser);
+            return View(await renovationFinaleContext.ToListAsync());
+        }
 
 
         private bool OffreExists(int id)

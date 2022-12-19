@@ -190,7 +190,7 @@ public partial class RenovationFinaleContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("prenom");
             entity.Property(e => e.Telephone)
-                .HasColumnType("numeric(10, 0)")
+                .HasColumnType("numeric").HasPrecision(10, 0)
                 .HasColumnName("telephone");
 
             entity.HasOne(d => d.IdUtilisateurNavigation).WithOne(p => p.Membre)
