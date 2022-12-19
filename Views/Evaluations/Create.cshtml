@@ -48,6 +48,15 @@
         </form>
     </div>
 </div>
+<div class="row mt-2">
+    <div class="col-md-4">
+        @if (TempData["messageError"] != null)
+        {
+                <p class="text text-danger">@TempData["messageError"]</p>
+        }
+
+    </div>
+</div>
 
 <div>
     <a asp-action="Index">Back to List</a>
