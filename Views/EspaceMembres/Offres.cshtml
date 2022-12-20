@@ -66,104 +66,88 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.announceVM.IdPieceNavigation.Titre)
                 </td>
-
-
-                @*  <td>
-            @Html.DisplayFor(modelItem => item.Duree)
-            </td>
-            <td>
-            @Html.DisplayFor(modelItem => item.Dimensions)
-            </td>
-            <td>
-            @Html.DisplayFor(modelItem => item.AutreInformations)
-            </td>
-            <td>
-            @Html.DisplayFor(modelItem => item.Etat)
-            </td>*@
-                @*  <td>
-            @Html.DisplayFor(modelItem => item.IdDesactivateurNavigation.IdAdministrateur)
-            </td>*@
-                @*<td>
-            @Html.DisplayFor(modelItem => item.IdPieceNavigation.Titre)
-            </td>
-            <td>
-            @Html.DisplayFor(modelItem => item.IdTypeRenovationNavigation.Titre)
-            </td>
-            <td>
-            @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Nom)
-            @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Prenom)
-            </td>
-            <td>
-            @Html.DisplayFor(modelItem => item.IdAnnounce.Offre)
-
-            </td>*@
                 <td>
-                    @*<a asp-action="CreateWithIDAnnounce" asp-controller="Offres" asp-route-id="@item.IdAnnounce">Faire une offre</a>*@
-                    @* <a asp-action="EditOffre" asp-route-id="@item.offreVM.IdAnnounce">Edit</a>*@
-                    @* <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>|*@
-                    @*<a asp-action="Delete" asp-route-id="@item.IdAnnounce">Delete</a>*@
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#offre-@item.announceVM.IdAnnounce" role="button" aria-expanded="false" aria-controls="offre-@item.announceVM.IdAnnounce">+</a>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#offre-@item.announceVM.IdAnnounce">+</button>
 
                 </td>
+                <td>
+                    <div class="modal fade" id="offre-@item.announceVM.IdAnnounce" tabindex="-1" aria-labelledby="offre-@item.announceVM.IdAnnounce-Label" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Offres pour cette annonce</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table" id="offre-@item.announceVM.IdAnnounce">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Fournisseur
+                                                </th>
+                                                <th>
+                                                    Budget
+                                                </th>
+                                                <th>
+                                                    Duree
+                                                </th>
+                                                <th>
+                                                    Date commence
+                                                </th>
+                                                <th>
+                                                    Etat offre
+                                                </th>
+                                                <th>
+                                                    Actions
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var subitem in Model.Where(id => id.announceVM.IdAnnounce == item.offreVM.IdAnnounce))
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.offreVM.IdFournisseurNavigation.Nom)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.offreVM.Budget)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.offreVM.Duree)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.offreVM.DateCommence)
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.offreVM.Etat)
+                                                    </td>
+                                                    <td>
+                                                        @if (item.offreVM.Etat == "Attendre")
+                                                        {
+                                                            @Html.ActionLink("Accepte", "EditOffre","EspaceMembres", new { idAnnounce = @item.offreVM.IdAnnounce,  idFournisseur = @item.offreVM.IdFournisseur, message = "Accepte"}, new { @class = "btn btn-sm btn-outline-primary me-2" })
+
+                                                            @Html.ActionLink("Refuse", "EditOffre","EspaceMembres",new { idAnnounce = @item.offreVM.IdAnnounce, idFournisseur = @item.offreVM.IdFournisseur, message = "Refuse"}, new { @class = "btn btn-sm btn-outline-secondary" })
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="text text-danger">@item.offreVM.Etat</span>
+                                                        }
+
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+               
             </tr>
-            <tr>
-                <table class="collapse table" id="offre-@item.announceVM.IdAnnounce">
-                    <thead>
-                        <tr>
-                            <th>
-                                Fournisseur
-                            </th>
-                            <th>
-                                Budget
-                            </th>
-                            <th>
-                                Duree
-                            </th>
-                            <th>
-                                Date commence
-                            </th>
-                            <th>
-                                Etat offre
-                            </th>
-                            <th>
-                                Actions
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var subitem in Model.Where(id => id.announceVM.IdAnnounce == item.offreVM.IdAnnounce))
-                        {
-                        <td>
-                                @Html.DisplayFor(modelItem => item.offreVM.IdFournisseurNavigation.Nom)
-                        </td>
-                        <td>
-                                @Html.DisplayFor(modelItem => item.offreVM.Budget)
-                        </td>
-                        <td>
-                                @Html.DisplayFor(modelItem => item.offreVM.Duree)
-                        </td>
-                        <td>
-                                @Html.DisplayFor(modelItem => item.offreVM.DateCommence)
-                        </td>
-                        <td>
-                                @Html.DisplayFor(modelItem => item.offreVM.Etat)
-                        </td>
-                         <td>
-                                @if (item.offreVM.Etat == "Attendre")
-                                {
-                                    @Html.ActionLink("Accepte", "EditOffre","EspaceMembres", new { idAnnounce = @item.offreVM.IdAnnounce,  idFournisseur = @item.offreVM.IdFournisseur, message = "Accepte"}, new { @class = "btn btn-sm btn-outline-primary me-2" })
-
-                                    @Html.ActionLink("Refuse", "EditOffre","EspaceMembres",new { idAnnounce = @item.offreVM.IdAnnounce, idFournisseur = @item.offreVM.IdFournisseur, message = "Refuse"}, new { @class = "btn btn-sm btn-outline-secondary" })
-                                } else
-                                {
-                                <span class="text text-danger">@item.offreVM.Etat</span>
-                                }
-
-                        </td>
-                        }
-                    </tbody>
-                </table>
-         </tr>
         }
     </tbody>
 </table>

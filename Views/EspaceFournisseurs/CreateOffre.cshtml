@@ -22,12 +22,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
             <label asp-for="IdAnnounce" class="control-label"></label>*@
-            <input name="IdAnnounce" class="form-control" value="@ViewBag.IdAnnounce" placeholder="@ViewBag.IdAnnounce"  />
+            <input name="IdAnnounce" class="form-control" value="@ViewBag.IdAnnounce" placeholder="@ViewBag.IdAnnounce"  type="hidden"/>
 
             @* </div>*@
             @*  <div class="form-group">
             <label asp-for="IdFournisseur" class="control-label"></label>*@
-            <input name="IdFournisseur" class="form-control" value="@userId" placeholder="@ViewBag.IdFournisseur"   />
+            <input name="IdFournisseur" class="form-control" value="@userId" placeholder="@ViewBag.IdFournisseur" type="hidden" />
             @*    @*<select asp-for="IdFournisseur" class ="form-control" asp-items="ViewBag.IdFournisseur"></select>*@
             @*</div>*@
             <div class="form-group mb-2">
