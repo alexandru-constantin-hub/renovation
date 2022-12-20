@@ -102,35 +102,38 @@
         </nav>
     </header>
     <section>
+    
     <div class="container">
         <main role="main" class="pb-3">
-                <div class="w-100 d-flex flex-row justify-content-around navbar navbar-expand-lg bg-light mb-4 pb-4 pt-4">
-                @if (@cookieRole == "Administrateur")
-                {
-                    <div class="nav-item"><a asp-controller="Administrateurs" asp-action="Index">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="Administrateurs" asp-action="gestionUtilisateurs">Active ou desactive</a></div>
-                    <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Announces</a></div>
-                    <div class="nav-item"><a asp-controller="Typepieces" asp-action="Index">Type de piece</a></div>
-                    <div class="nav-item"><a asp-controller="Typerenovations" asp-action="Index">Type de renovation</a></div>
-                }
-                @if (@cookieRole == "Membre")
-                {
-                    <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="Apercu">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="CreeAnnounce">Cree une announce</a></div>
-                    <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="MesAnnounces">Mes annonces</a></div>
-                    <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="Offres">Des offres</a></div>
-                    <div class="nav-item"><a asp-controller="Evaluations" asp-action="Index">Entreprises</a></div>
-                }
-                @if (@cookieRole == "Fournisseur")
-                {
-                    <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="Apercu">Apercu</a></div>
-                    <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="AnnouncesFourniseur">Rechercher une annonce</a></div>
-                        <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="OffresFourniseur">Mes offres</a></div>
-                }
+            @if (@cookieLogedIn == "true")
+            {
+                    <div class="w-100 d-flex flex-row justify-content-around navbar navbar-expand-lg bg-light mb-4 pb-4 pt-4">
+                        @if (@cookieRole == "Administrateur")
+                        {
+                            <div class="nav-item"><a asp-controller="Administrateurs" asp-action="Index">Apercu</a></div>
+                            <div class="nav-item"><a asp-controller="Administrateurs" asp-action="gestionUtilisateurs">Active ou desactive</a></div>
+                            <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Announces</a></div>
+                            <div class="nav-item"><a asp-controller="Typepieces" asp-action="Index">Type de piece</a></div>
+                            <div class="nav-item"><a asp-controller="Typerenovations" asp-action="Index">Type de renovation</a></div>
+                        }
+                        @if (@cookieRole == "Membre")
+                        {
+                            <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="Apercu">Apercu</a></div>
+                            <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="CreeAnnounce">Cree une announce</a></div>
+                            <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="MesAnnounces">Mes annonces</a></div>
+                            <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="Offres">Des offres</a></div>
+                            <div class="nav-item"><a asp-controller="Evaluations" asp-action="Index">Entreprises</a></div>
+                        }
+                        @if (@cookieRole == "Fournisseur")
+                        {
+                            <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="Apercu">Apercu</a></div>
+                            <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="AnnouncesFourniseur">Rechercher une annonce</a></div>
+                            <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="OffresFourniseur">Mes offres</a></div>
+                        }
                
                 
             </div>
-            
+            }
             @RenderBody()
         </main>
     </div>

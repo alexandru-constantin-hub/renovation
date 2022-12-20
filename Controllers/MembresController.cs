@@ -65,7 +65,7 @@ namespace RenovationFinale.Controllers
             
                 _context.Add(membre);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                
             
             ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur", membre.IdUtilisateur);
             return RedirectToAction("Index", "Login");
