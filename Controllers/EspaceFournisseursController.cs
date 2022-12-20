@@ -66,11 +66,12 @@ namespace RenovationFinale.Controllers
         public async Task<IActionResult> AnnouncesFourniseur()
         {
             var userId = Int32.Parse(Request.Cookies["nameIdentifier"]);
+            var offres = _context.Offres.Where(a => a.IdFournisseur == userId).Select(id => id.IdAnnounce);
 
             ViewData["piece"] = new SelectList(_context.Typepieces, "Titre", "Titre");
             ViewData["renovation"] = new SelectList(_context.Typerenovations, "Titre", "Titre");
             //List<JoinAO> renovationFinaleContext1 = _context.Announces.Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Join(_context.Offres.Include(a => a.IdFournisseurNavigation), a => a.IdAnnounce, o => o.IdAnnounce, (a, o) => new { a, o }).Select(x => new JoinAO { announceVM = x.a, offreVM = x.o }).ToList();
-            List<JoinAO> renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre).Where(e=>e.Etat == "Activé").Join(_context.Offres.Include(a => a.IdFournisseurNavigation).Where(id=>id.IdFournisseur != userId), a => a.IdAnnounce, o => o.IdAnnounce, (a, o) => new { a, o }).Select(x => new JoinAO { announceVM = x.a, offreVM = x.o }).ToList();
+            List<Announce> renovationFinaleContext = _context.Announces.Include(a => a.IdDesactivateurNavigation).Include(a => a.IdPieceNavigation).Include(a => a.IdTypeRenovationNavigation).Include(a => a.IdUtilisateurNavigation.Membre).Where(e=>e.Etat == "Activé").Where(id=> !offres.Contains(id.IdAnnounce)).ToList();
             return View(renovationFinaleContext);
         }
 

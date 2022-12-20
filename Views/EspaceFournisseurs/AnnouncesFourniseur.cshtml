@@ -2,7 +2,7 @@
 @using System.Web;
 @using System.Collections;
 @inject Microsoft.AspNetCore.Http.IHttpContextAccessor context
-@model IEnumerable<RenovationFinale.Models.JoinAO>
+@model IEnumerable<RenovationFinale.Models.Announce>
 
 @{
     ViewData["Title"] = "Index";
@@ -71,16 +71,16 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.announceVM.Adresse)
+                    @Html.DisplayFor(modelItem => item.Adresse)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.announceVM.Duree)
+                    @Html.DisplayFor(modelItem => item.Duree)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.announceVM.Dimensions)
+                    @Html.DisplayFor(modelItem => item.Dimensions)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.announceVM.AutreInformations)
+                    @Html.DisplayFor(modelItem => item.AutreInformations)
                 </td>
                 @*<td>
                     @Html.DisplayFor(modelItem => item.Etat)
@@ -89,18 +89,18 @@
             @Html.DisplayFor(modelItem => item.IdDesactivateurNavigation.IdAdministrateur)
             </td>*@
                 <td>
-                    @Html.DisplayFor(modelItem => item.announceVM.IdPieceNavigation.Titre)
+                    @Html.DisplayFor(modelItem => item.IdPieceNavigation.Titre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.announceVM.IdTypeRenovationNavigation.Titre)
+                    @Html.DisplayFor(modelItem => item.IdTypeRenovationNavigation.Titre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.announceVM.IdUtilisateurNavigation.Membre.Nom)
-                    @Html.DisplayFor(modelItem => item.announceVM.IdUtilisateurNavigation.Membre.Prenom)
+                    @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Nom)
+                    @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Prenom)
                 </td>
                 <td>
 
-                    <a asp-action="CreateOffre" asp-controller="EspaceFournisseurs" asp-route-id="@item.announceVM.IdAnnounce">Faire une offre</a>
+                    <a asp-action="CreateOffre" asp-controller="EspaceFournisseurs" asp-route-id="@item.IdAnnounce">Faire une offre</a>
                                        
                     @*<a asp-action="Edit" asp-route-id="@item.IdAnnounce">Edit</a> *@
                     @* <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a>|*@
