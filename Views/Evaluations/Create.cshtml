@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Note" class="control-label mb-2"></label>
-                <input asp-for="Note" class="form-control mb-2" />
+                <input asp-for="Note" class="form-control mb-2" min="1" max="5"/>
                 <span asp-validation-for="Note" class="text-danger"></span>
             </div>
             <div class="form-group">
