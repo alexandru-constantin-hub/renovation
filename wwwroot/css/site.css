@@ -22,3 +22,64 @@ li.nav-item.active {
     background-color: #808080;
     border-left: 5px solid #fff;
 }
+
+
+
+.nav-item {
+    margin-left: 20px;
+    margin-bottom: -10px;
+}
+
+.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 11, 11, 0.4), transparent),url('/img/home.png') center center no-repeat;
+    background-size: cover;
+    z-index: -100;
+}
+
+    .banner .navbar {
+        margin-top: 4%;
+    }
+
+    .banner .info {
+        margin-top: 10%;
+        transform: translateY(-15%);
+    }
+
+        .banner .info h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+.text-special {
+    color: #94f7e6;
+}
+
+.banner .info p {
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.banner .info a {
+    padding: 1rem 1rem;
+    background: #ffcb0f;
+    border-radius: 8px;
+    color: #222533;
+    font-size: 1rem;
+    margin-left: 300px;
+}
+
+.text-homepage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
