@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -52,8 +53,8 @@ namespace RenovationFinale.Controllers
         {
 
 
-
-            ViewBag.IdFournisseur = new SelectList(_context.Fournisseurs, "IdUtilisateur", "Nom");
+            int idUtilisateur = Int16.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value);
+            ViewBag.IdFournisseur = new SelectList(_context.Fournisseurs.Where(id=>id.IdUtilisateur != idUtilisateur), "IdUtilisateur", "Nom");
             ViewData["IdUtilisateur"] = new SelectList(_context.Membres, "IdUtilisateur", "IdUtilisateur");
             return View();
         }

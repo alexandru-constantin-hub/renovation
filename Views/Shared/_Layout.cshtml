@@ -26,7 +26,7 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/img/Logo.svg" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -102,41 +102,88 @@
         </nav>
     </header>
     <section>
-    
-    <div class="container">
-        <main role="main" class="pb-3">
-            @if (@cookieLogedIn == "true")
+         @if (@cookieLogedIn == "true")
             {
-                    <div class="w-100 d-flex flex-row justify-content-around navbar navbar-expand-lg bg-light mb-4 pb-4 pt-4">
-                        @if (@cookieRole == "Administrateur")
-                        {
-                            <div class="nav-item"><a asp-controller="Administrateurs" asp-action="Index">Apercu</a></div>
-                            <div class="nav-item"><a asp-controller="Administrateurs" asp-action="gestionUtilisateurs">Active ou desactive</a></div>
-                            <div class="nav-item"><a asp-controller="Announces" asp-action="Index">Announces</a></div>
-                            <div class="nav-item"><a asp-controller="Typepieces" asp-action="Index">Type de piece</a></div>
-                            <div class="nav-item"><a asp-controller="Typerenovations" asp-action="Index">Type de renovation</a></div>
-                        }
-                        @if (@cookieRole == "Membre")
-                        {
-                            <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="Apercu">Apercu</a></div>
-                            <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="CreeAnnounce">Cree une announce</a></div>
-                            <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="MesAnnounces">Mes annonces</a></div>
-                            <div class="nav-item"><a asp-controller="EspaceMembres" asp-action="Offres">Des offres</a></div>
-                            <div class="nav-item"><a asp-controller="Evaluations" asp-action="Index">Entreprises</a></div>
-                        }
-                        @if (@cookieRole == "Fournisseur")
-                        {
-                            <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="Apercu">Apercu</a></div>
-                            <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="AnnouncesFourniseur">Rechercher une annonce</a></div>
-                            <div class="nav-item"><a asp-controller="EspaceFournisseurs" asp-action="OffresFourniseur">Mes offres</a></div>
-                        }
-               
-                
+                <div class="container-fluid">
+                    <div class="row flex-nowrap">
+                    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+                        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                            <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                                <span class="fs-5 d-none d-sm-inline">Menu</span>
+                            </a>
+                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                                    @if (@cookieRole == "Administrateur")
+                                    {
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="Administrateurs" asp-action="Index"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link align-middle px-0 link-light" asp-controller="Administrateurs" asp-action="gestionUtilisateurs"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Active ou desactive</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="Announces" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Announces</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="Typepieces" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Type de piece</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="Typerenovations" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Type de renovation</span></a>
+                                        </li>
+                                    }
+                                    @if (@cookieRole == "Membre")
+                                    {
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceMembres" asp-action="Apercu"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceMembres" asp-action="CreeAnnounce"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Cree une announce</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceMembres" asp-action="MesAnnounces"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Mes annonces</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceMembres" asp-action="Offres"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Des offres</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link align-middle px-0 link-light" asp-controller="Evaluations" asp-action="Index"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Entreprises</span></a>
+                                        </li>
+                                    }
+                                    @if (@cookieRole == "Fournisseur")
+                                    {
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceFournisseurs" asp-action="Apercu"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceFournisseurs" asp-action="AnnouncesFourniseur"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Rechercher une annonce</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceFournisseurs" asp-action="OffresFourniseur"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Mes offres</span></a>
+                                        </li>
+                                    }
+                                    
+                               
+                                
+                            </ul>
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="col py-3 px-5">
+                        <main role="main">
+                            @RenderBody()
+                        </main>
+                    </div>
+                </div>
             </div>
-            }
-            @RenderBody()
-        </main>
-    </div>
+        } else
+        {
+            <main role="main">
+                <div class="container">
+                    @RenderBody()
+                </div>
+            </main>
+        }
+        
+    
 
     <footer class="border-top footer text-muted">
  

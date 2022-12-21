@@ -200,6 +200,7 @@ namespace RenovationFinale.Controllers
             {
                 try
                 {
+                    announce.IdUtilisateur = int.Parse(Request.Cookies["NameIdentifier"]);
                     _context.Update(announce);
                     await _context.SaveChangesAsync();
                 }
@@ -214,13 +215,13 @@ namespace RenovationFinale.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("MesAnnounces");
             }
             ViewData["IdDesactivateur"] = new SelectList(_context.Administrateurs, "IdAdministrateur", "IdAdministrateur", announce.IdDesactivateur);
             ViewData["IdPiece"] = new SelectList(_context.Typepieces, "IdPiece", "IdPiece", announce.IdPiece);
             ViewData["IdTypeRenovation"] = new SelectList(_context.Typerenovations, "IdTypeRenovation", "IdTypeRenovation", announce.IdTypeRenovation);
             ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur", announce.IdUtilisateur);
-            return View(announce);
+            return RedirectToAction("MesAnnounces");
         }
 
 
