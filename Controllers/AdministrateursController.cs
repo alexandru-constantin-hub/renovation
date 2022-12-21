@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -172,13 +173,54 @@ namespace RenovationFinale.Controllers
         public IActionResult gestionUtilisateurs()
         {
             
-            List<Utilisateur> utilisateurs = _context.Utilisateurs.ToList();
-            List<Membre> membres = _context.Membres.ToList();
-            List<Fournisseur> fournisseurs = _context.Fournisseurs.ToList();
-
-            ViewData["um"] = _context.Utilisateurs.Join(_context.Membres, u => u.IdUtilisateur, m => m.IdUtilisateur, (u, m) => new JoinUM { utilisateurVM = u, membreVM = m });
-            ViewData["uf"] = _context.Utilisateurs.Join(_context.Fournisseurs, u => u.IdUtilisateur, f => f.IdUtilisateur, (u, f) => new JoinUF { utilisateurVM = u, fournisseurVM = f });
+            List<Utilisateur> utilisateurs = _context.Utilisateurs.OrderByDescending(c => c.IdUtilisateur).ToList();
+            List<Membre> membres = _context.Membres.OrderByDescending(c => c.IdUtilisateur).ToList();
+            List<Fournisseur> fournisseurs = _context.Fournisseurs.OrderByDescending(c => c.IdUtilisateur).ToList();
+            
+            ViewData["um"] = _context.Utilisateurs.OrderByDescending(c => c.IdUtilisateur).Join(_context.Membres, u => u.IdUtilisateur, m => m.IdUtilisateur, (u, m) => new JoinUM { utilisateurVM = u, membreVM = m });
+            ViewData["uf"] = _context.Utilisateurs.OrderByDescending(c => c.IdUtilisateur).Join(_context.Fournisseurs, u => u.IdUtilisateur, f => f.IdUtilisateur, (u, f) => new JoinUF { utilisateurVM = u, fournisseurVM = f });
             return View();
+        }
+
+
+        [Authorize]
+        public async Task<IActionResult> Active(int? id, bool etat)
+        {
+
+            int idAdmin = Int16.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value);
+
+            if (id == null || _context.Utilisateurs == null)
+            {
+                return NotFound();
+            }
+
+            var utlisateur = await _context.Utilisateurs.FindAsync(id);
+            if (utlisateur == null)
+            {
+                return NotFound();
+            }
+            utlisateur.Etat = etat;
+            if (etat)
+            {
+                utlisateur.IdActivateur = idAdmin;
+            }
+            else
+            {
+                utlisateur.IdDesactivateur = idAdmin;
+            }
+            
+            _context.Update(utlisateur);
+            await _context.SaveChangesAsync();
+
+            if (etat) {
+                TempData["MessageSuccess"] = "Utilisateur Active";
+            } else
+            {
+                TempData["MessageSuccess"] = "Utilisateur Desactive";
+            }
+            
+
+            return RedirectToAction("GestionUtilisateurs");
         }
 
     }

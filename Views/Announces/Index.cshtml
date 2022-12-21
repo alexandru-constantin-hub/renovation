@@ -10,6 +10,16 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+
+@if (TempData["messageSuccess"] != null)
+{
+    <div class="alert alert-success position-absolute top-0 end-0" role="alert">
+        @TempData["messageSuccess"]
+    </div>
+}
+
+
 <table class="table">
     <thead>
         <tr>
@@ -40,7 +50,9 @@
             <th>
                 Nom utilisateur
             </th>
-            <th></th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -75,9 +87,18 @@
                 @Html.DisplayFor(modelItem => item.IdUtilisateurNavigation.Membre.Prenom)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAnnounce">Edit</a> |
+                    @if (@item.Etat == "Activé")
+                    {
+                        @Html.ActionLink("Desactive", "Active","Announces",new { id = @item.IdAnnounce, etat = "Désactivé" }, new { @class = "btn btn-sm btn-danger" })
+                    } else
+                    {
+                        @Html.ActionLink("Activé", "Active","Announces",new { id = @item.IdAnnounce, etat = "Activé" }, new { @class = "btn btn-sm btn-success" })
+                    }
+
+                    
+                @*<a asp-action="Edit" asp-route-id="@item.IdAnnounce">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.IdAnnounce">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAnnounce">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.IdAnnounce">Delete</a>*@
             </td>
         </tr>
 }

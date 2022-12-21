@@ -203,6 +203,7 @@ namespace RenovationFinale.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
         private bool UtilisateurExists(int id)
         {
           return _context.Utilisateurs.Any(e => e.IdUtilisateur == id);

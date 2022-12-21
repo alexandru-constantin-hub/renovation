@@ -207,6 +207,46 @@ namespace RenovationFinale.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+
+        [Authorize]
+        public async Task<IActionResult> Active(int? id, string etat)
+        {
+
+            int idAdmin = Int16.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value);
+
+            if (id == null || _context.Utilisateurs == null)
+            {
+                return NotFound();
+            }
+
+            var announce = await _context.Announces.FindAsync(id);
+            if (announce == null)
+            {
+                return NotFound();
+            }
+            announce.Etat = etat;
+            if (etat == "Désactivé")
+            {
+                announce.IdDesactivateur = idAdmin;
+            }
+           
+
+            _context.Update(announce);
+            await _context.SaveChangesAsync();
+
+            if (etat == "Désactivé")
+            {
+                TempData["MessageSuccess"] = "Announce Desactive";
+            }
+            else
+            {
+                TempData["MessageSuccess"] = "Announce Active";
+            }
+
+
+            return RedirectToAction("Index");
+        }
+
         private bool AnnounceExists(int id)
         {
           return _context.Announces.Any(e => e.IdAnnounce == id);

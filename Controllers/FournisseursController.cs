@@ -68,8 +68,7 @@ namespace RenovationFinale.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             
-            ViewData["IdUtilisateur"] = new SelectList(_context.Utilisateurs, "IdUtilisateur", "IdUtilisateur", fournisseur.IdUtilisateur);
-            return View(fournisseur);
+           
         }
 
         // GET: Fournisseurs/Edit/5

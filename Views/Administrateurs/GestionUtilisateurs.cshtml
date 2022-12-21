@@ -5,7 +5,14 @@
     IEnumerable<JoinUF> ufs = ViewData["uf"] as IEnumerable<JoinUF>;
 }
 
-<h1>Index</h1>
+<h1>Utilisateurs</h1>
+
+@if (TempData["messageSuccess"] != null)
+{
+    <div class="alert alert-success position-absolute top-0 end-0" role="alert">
+        @TempData["messageSuccess"]
+    </div>
+}
 
 
 <table class="table">
@@ -41,8 +48,16 @@
             <th>
                 Telephone
             </th>
+            <th>
+                Active par
+            </th>
+            <th>
+                Desactive par
+            </th>
 
-            <th></th>
+            <th>
+            Actions
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -53,7 +68,19 @@
                     @Html.DisplayFor(modelItem => item.utilisateurVM.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.utilisateurVM.Etat)
+                    @if (@item.utilisateurVM.Etat == false && @item.utilisateurVM.IdActivateur == null)
+                    {
+                        <span class="text text-danger">Pas Activé</span>
+                    }
+
+                    @if (@item.utilisateurVM.Etat == false && @item.utilisateurVM.IdDesactivateur != null)
+                    {
+                        <span class="text text-secondary">Désactivé</span>
+                    }
+                    @if (@item.utilisateurVM.Etat == true)
+                    {
+                        <span class="text text-primary">Activé</span>
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.utilisateurVM.Role)
@@ -77,7 +104,26 @@
                     @Html.DisplayFor(modelItem => item.membreVM.Telephone)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-controller="Utilisateurs" asp-route-id="@item.utilisateurVM.IdUtilisateur">Active / Desactive</a>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.IdActivateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.IdDesactivateur)
+                </td>
+                <td>
+                    @if (@item.utilisateurVM.Etat == false && @item.utilisateurVM.IdActivateur == null)
+                    {
+                        @Html.ActionLink("Activation", "Active","Administrateurs",new { id = @item.utilisateurVM.IdUtilisateur, etat = true }, new { @class = "btn btn-sm btn-success" })
+                    }
+
+                    @if (@item.utilisateurVM.Etat == false && @item.utilisateurVM.IdDesactivateur != null)
+                    {
+                        @Html.ActionLink("Active", "Active","Administrateurs",new { id = @item.utilisateurVM.IdUtilisateur, etat = true }, new { @class = "btn btn-sm btn-primary" })
+                    }
+                    @if (@item.utilisateurVM.Etat == true)
+                    {
+                        @Html.ActionLink("Desactive", "Active","Administrateurs",new { id = @item.utilisateurVM.IdUtilisateur, etat = false }, new { @class = "btn btn-sm btn-danger" })
+                    }
+                    //<a asp-action="Edit" asp-controller="Utilisateurs" asp-route-id="@item.utilisateurVM.IdUtilisateur">Active / Desactive</a>
                     @* <a asp-action="Details" asp-route-id="@item.utilisateurVM.IdUtilisateur">Details</a>*@
                     @* <a asp-action="Delete" asp-route-id="@item.utilisateurVM.IdUtilisateur">Delete</a>*@
                 </td>
@@ -86,6 +132,9 @@
     </tbody>
 </table>
 
+
+
+<h1>Fournisseurs</h1>
 
 <table class="table">
     <thead>
@@ -120,8 +169,15 @@
             <th>
                 Telephone
             </th>
-
-            <th></th>
+            <th>
+                Active par
+            </th>
+            <th>
+                Desactive par
+            </th>
+            <th>
+                Actions
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -132,7 +188,19 @@
                     @Html.DisplayFor(modelItem => item.utilisateurVM.Email)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.utilisateurVM.Etat)
+                    @if (@item.utilisateurVM.Etat == false && @item.utilisateurVM.IdActivateur == null)
+                    {
+                        <span class="text text-danger">Pas Activé</span>
+                    }
+
+                    @if (@item.utilisateurVM.Etat == false && @item.utilisateurVM.IdDesactivateur != null)
+                    {
+                        <span class="text text-secondary">Désactivé</span>
+                    }
+                    @if (@item.utilisateurVM.Etat == true)
+                    {
+                        <span class="text text-primary">Activé</span>
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.utilisateurVM.Role)
@@ -156,7 +224,26 @@
                     @Html.DisplayFor(modelItem => item.fournisseurVM.Telephone)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-controller="Utilisateurs" asp-route-id="@item.utilisateurVM.IdUtilisateur">Active / Desactive</a>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.IdActivateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.utilisateurVM.IdDesactivateur)
+                </td>
+                <td>
+                    @if (@item.utilisateurVM.Etat == false && @item.utilisateurVM.IdActivateur == null)
+                    {
+                        @Html.ActionLink("Activation", "Active","Administrateurs",new { id = @item.utilisateurVM.IdUtilisateur, etat = true }, new { @class = "btn btn-sm btn-success" })
+                    }
+
+                    @if (@item.utilisateurVM.Etat == false && @item.utilisateurVM.IdDesactivateur != null)
+                    {
+                        @Html.ActionLink("Active", "Active","Administrateurs",new { id = @item.utilisateurVM.IdUtilisateur, etat = true }, new { @class = "btn btn-sm btn-primary" })
+                    }
+                    @if (@item.utilisateurVM.Etat == true)
+                    {
+                        @Html.ActionLink("Desactive", "Active","Administrateurs",new { id = @item.utilisateurVM.IdUtilisateur, etat = false }, new { @class = "btn btn-sm btn-danger" })
+                    }
+                    //<a asp-action="Edit" asp-controller="Utilisateurs" asp-route-id="@item.utilisateurVM.IdUtilisateur">Active / Desactive</a>
                     @* <a asp-action="Details" asp-route-id="@item.utilisateurVM.IdUtilisateur">Details</a>*@
                     @* <a asp-action="Delete" asp-route-id="@item.utilisateurVM.IdUtilisateur">Delete</a>*@
                 </td>
@@ -164,4 +251,6 @@
         }
     </tbody>
 </table>
+
+
 
