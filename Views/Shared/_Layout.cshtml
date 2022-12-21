@@ -10,6 +10,8 @@
     var cookieRole = context.HttpContext.Request.Cookies["role"];
 
     var cookieName = context.HttpContext.Request.Cookies["name"];
+
+    string path = Context.Request.Path;
 }
 
 
@@ -106,58 +108,56 @@
             {
                 <div class="container-fluid">
                     <div class="row flex-nowrap">
-                    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                            <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                                <span class="fs-5 d-none d-sm-inline">Menu</span>
-                            </a>
-                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <div class="col-auto col-md-3 col-xl-2 px-0 bg-dark">
+                        <div class="d-flex flex-column align-items-center align-items-sm-start pt-2 text-white min-vh-100">
+                            
+                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100" id="menu">
                                     @if (@cookieRole == "Administrateur")
                                     {
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="Administrateurs" asp-action="Index"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
+                                    <li class="nav-item">
+                                        <a class="nav-link align-middle px-2 link-light" asp-controller="Administrateurs" asp-action="Index"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link align-middle px-0 link-light" asp-controller="Administrateurs" asp-action="gestionUtilisateurs"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Active ou desactive</span></a>
+                                    <li class="nav-item @(path.StartsWith("/Administrateurs/gestionUtilisateurs") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="Administrateurs" asp-action="gestionUtilisateurs"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Active ou desactive</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="Announces" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Announces</span></a>
+                                    <li class="nav-item @(path.StartsWith("/Announces") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="Announces" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Announces</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="Typepieces" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Type de piece</span></a>
+                                    <li class="nav-item @(path.StartsWith("/Typepieces") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="Typepieces" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Type de piece</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="Typerenovations" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Type de renovation</span></a>
+                                    <li class="nav-item @(path.StartsWith("/Typerenovations") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="Typerenovations" asp-action="Index"><i class="fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Type de renovation</span></a>
                                         </li>
                                     }
                                     @if (@cookieRole == "Membre")
                                     {
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceMembres" asp-action="Apercu"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
+                                    <li class="nav-item @(path.StartsWith("/EspaceMembres/Apercu") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="EspaceMembres" asp-action="Apercu"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceMembres" asp-action="CreeAnnounce"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Cree une announce</span></a>
+                                    <li class="nav-item @(path.StartsWith("/EspaceMembres/CreeAnnounce") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="EspaceMembres" asp-action="CreeAnnounce"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Cree une announce</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceMembres" asp-action="MesAnnounces"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Mes annonces</span></a>
+                                    <li class="nav-item @(path.StartsWith("/EspaceMembres/MesAnnounces") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="EspaceMembres" asp-action="MesAnnounces"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Mes annonces</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceMembres" asp-action="Offres"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Des offres</span></a>
+                                    <li class="nav-item @(path.StartsWith("/EspaceMembres/Offres") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="EspaceMembres" asp-action="Offres"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Des offres</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link align-middle px-0 link-light" asp-controller="Evaluations" asp-action="Index"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Entreprises</span></a>
+                                    <li class="nav-item @(path.StartsWith("/Evaluations") ? "active" : "")">
+                                            <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="Evaluations" asp-action="Index"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Entreprises</span></a>
                                         </li>
                                     }
                                     @if (@cookieRole == "Fournisseur")
                                     {
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceFournisseurs" asp-action="Apercu"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
+                                    <li class="nav-item @(path.StartsWith("/EspaceFournisseurs/Apercu") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="EspaceFournisseurs" asp-action="Apercu"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Apercu</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceFournisseurs" asp-action="AnnouncesFourniseur"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Rechercher une annonce</span></a>
+                                    <li class="nav-item @(path.StartsWith("/EspaceFournisseurs/AnnouncesFourniseur") ? "active" : "")">
+                                            <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="EspaceFournisseurs" asp-action="AnnouncesFourniseur"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Rechercher une annonce</span></a>
                                         </li>
-                                        <li class="nav-item">
-                                        <a class="nav-link align-middle px-0 link-light" asp-controller="EspaceFournisseurs" asp-action="OffresFourniseur"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Mes offres</span></a>
+                                    <li class="nav-item @(path.StartsWith("/EspaceFournisseurs/OffresFourniseur") ? "active" : "")">
+                                        <a class="nav-link align-middle px-2 mb-2 link-light" asp-controller="EspaceFournisseurs" asp-action="OffresFourniseur"><i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Mes offres</span></a>
                                         </li>
                                     }
                                     
