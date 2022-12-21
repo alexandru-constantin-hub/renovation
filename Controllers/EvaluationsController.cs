@@ -64,20 +64,20 @@ namespace RenovationFinale.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUtilisateur,IdFournisseur,Note,Commentaire")] Evaluation evaluation)
+        public async Task<IActionResult> Create([Bind("IdFournisseur,Note,Commentaire")] Evaluation evaluation)
         {
 
-            if (ModelState.IsValid)
-            {
+            
+                evaluation.IdUtilisateur = Int16.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value);
                 _context.Add(evaluation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
+            
 
-            TempData["MessageError"] = "Vous avez déjà évalué ce fournisseur";
-            ViewData["IdFournisseur"] = new SelectList(_context.Fournisseurs, "IdUtilisateur", "Nom", evaluation.IdFournisseur);
-            ViewData["IdUtilisateur"] = new SelectList(_context.Membres, "IdUtilisateur", "IdUtilisateur", evaluation.IdUtilisateur);
-            return View(evaluation);
+            //TempData["MessageError"] = "Vous avez déjà évalué ce fournisseur";
+            //ViewData["IdFournisseur"] = new SelectList(_context.Fournisseurs, "IdUtilisateur", "Nom", evaluation.IdFournisseur);
+            //ViewData["IdUtilisateur"] = new SelectList(_context.Membres, "IdUtilisateur", "IdUtilisateur", evaluation.IdUtilisateur);
+            //return View(evaluation);
         }
 
         // GET: Evaluations/Edit/5
