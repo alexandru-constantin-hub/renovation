@@ -100,7 +100,8 @@ public partial class RenovationFinaleContext : DbContext
 
             entity.HasOne(d => d.IdPieceNavigation).WithMany(p => p.Announces)
                 .HasForeignKey(d => d.IdPiece)
-                .HasConstraintName("FK__ANNOUNCE__idPiec__398D8EEE");
+                .HasConstraintName("FK__ANNOUNCE__idPiec__398D8EEE")
+                .OnDelete(DeleteBehavior.ClientSetNull);
 
             entity.HasOne(d => d.IdTypeRenovationNavigation).WithMany(p => p.Announces)
                 .HasForeignKey(d => d.IdTypeRenovation)
@@ -247,6 +248,7 @@ public partial class RenovationFinaleContext : DbContext
                 .HasMaxLength(225)
                 .IsUnicode(false)
                 .HasColumnName("titre");
+
         });
 
         modelBuilder.Entity<Typerenovation>(entity =>

@@ -55,10 +55,11 @@ namespace RenovationFinale.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPiece,Titre,Description")] Typepiece typepiece)
+        public async Task<IActionResult> Create([Bind("Titre,Description")] Typepiece typepiece)
         {
             if (ModelState.IsValid)
             {
+                typepiece.IdPiece = _context.Typepieces.Count() + 1;
                 _context.Add(typepiece);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
